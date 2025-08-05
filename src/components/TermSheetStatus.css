@@ -1,0 +1,203 @@
+.status-container {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.status-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.status-header h2 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.current-status {
+  font-size: 14px;
+  color: #666;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.status-badge.draft {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-badge.pending {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.status-badge.approved {
+  background: #e8f5e8;
+  color: #388e3c;
+}
+
+.status-badge.cfmc_created {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.status-badge.committed {
+  background: #e8f5e8;
+  color: #2e7d32;
+}
+
+.workflow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.workflow-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.step-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 40px;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  border: 2px solid #e0e0e0;
+}
+
+.workflow-step.completed .step-number {
+  background: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
+
+.workflow-step.current .step-number {
+  background: #2196f3;
+  color: white;
+  border-color: #2196f3;
+  animation: pulse 2s infinite;
+}
+
+.step-connector {
+  width: 2px;
+  height: 30px;
+  background: #e0e0e0;
+  margin-top: 8px;
+}
+
+.workflow-step.completed .step-connector {
+  background: #4caf50;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-content h4 {
+  margin: 0 0 4px 0;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.step-content p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.action-buttons {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background: #2196f3;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #1976d2;
+  transform: translateY(-2px);
+}
+
+.btn-success {
+  background: #4caf50;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #388e3c;
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  background: #f44336;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #d32f2f;
+  transform: translateY(-2px);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(33, 150, 243, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(33, 150, 243, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(33, 150, 243, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .status-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+} 

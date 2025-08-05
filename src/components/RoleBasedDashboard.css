@@ -1,0 +1,457 @@
+/* Add to your existing dashboard CSS */
+
+.deals-table-section {
+  margin-bottom: 30px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.table-header h3 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.table-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.table-container {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.deals-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  display: grid;
+  grid-template-columns: 120px 1fr 150px 140px 120px 120px 140px;
+}
+
+.deals-table thead {
+  background: #f8f9fa;
+  border-bottom: 2px solid #e0e0e0;
+  display: contents;
+}
+
+.deals-table thead tr {
+  display: contents;
+}
+
+.deals-table tbody {
+  display: contents;
+}
+
+.deals-table tr {
+  display: contents;
+}
+
+.deals-table th {
+  padding: 15px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #2c3e50;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+}
+
+.deals-table td {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+}
+
+.deal-row {
+  background: #f8f9fa;
+  font-weight: 600;
+  display: contents;
+}
+
+.deal-row:hover {
+  background: #e3f2fd;
+}
+
+.deal-row:hover td {
+  background: #e3f2fd;
+}
+
+.term-sheet-row {
+  background: white;
+  border-left: 3px solid #2196f3;
+  display: contents;
+}
+
+.term-sheet-row:hover {
+  background: #f5f5f5;
+}
+
+.term-sheet-row:hover td {
+  background: #f5f5f5;
+}
+
+.deal-id {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  color: #1976d2;
+  font-size: 12px;
+}
+
+.deal-name {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.commitment {
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.term-sheets-count {
+  text-align: center;
+  color: #666;
+  justify-content: center;
+}
+
+.term-sheet-info {
+  padding-left: 30px;
+}
+
+.ts-details {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ts-id {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  color: #1976d2;
+  font-size: 12px;
+}
+
+.ts-facility {
+  color: #666;
+  font-size: 11px;
+}
+
+.ts-commitment {
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.ts-version {
+  text-align: center;
+  color: #666;
+  font-size: 12px;
+  justify-content: center;
+}
+
+.actions {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+  white-space: nowrap;
+}
+
+.status-badge.active {
+  background: #4caf50;
+}
+
+.status-badge.pending {
+  background: #f57c00;
+}
+
+.status-badge.approved {
+  background: #4caf50;
+}
+
+.status-badge.draft {
+  background: #1976d2;
+}
+
+.status-badge.changes-requested {
+  background: #f57c00;
+}
+
+.status-badge.rejected {
+  background: #d32f2f;
+}
+
+.btn-xs {
+  padding: 4px 8px;
+  font-size: 11px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 1200px) {
+  .deals-table {
+    grid-template-columns: 100px 1fr 120px 120px 100px 100px 120px;
+  }
+}
+
+@media (max-width: 992px) {
+  .deals-table {
+    grid-template-columns: 80px 1fr 100px 100px 80px 80px 100px;
+  }
+  
+  .deals-table th,
+  .deals-table td {
+    padding: 8px 6px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .deals-table {
+    min-width: 800px;
+    grid-template-columns: 80px 1fr 100px 100px 80px 80px 100px;
+  }
+  
+  .table-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  
+  .table-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .term-sheet-info {
+    padding-left: 20px;
+  }
+  
+  .ts-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+}
+
+@media (max-width: 480px) {
+  .deals-table {
+    min-width: 700px;
+    grid-template-columns: 70px 1fr 90px 90px 70px 70px 90px;
+  }
+  
+  .deals-table th,
+  .deals-table td {
+    padding: 6px 4px;
+    font-size: 11px;
+  }
+  
+  .btn-xs {
+    padding: 3px 6px;
+    font-size: 10px;
+  }
+  
+  .status-badge {
+    padding: 3px 6px;
+    font-size: 10px;
+  }
+}
+
+/* Additional grid utilities */
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.grid-auto-fill {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.grid-2-cols {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.grid-3-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.grid-4-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Grid responsive breakpoints */
+@media (max-width: 1200px) {
+  .grid-4-cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .grid-3-cols,
+  .grid-4-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-2-cols,
+  .grid-3-cols,
+  .grid-4-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Table specific grid improvements */
+.table-grid {
+  display: grid;
+  gap: 1px;
+  background: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-grid-header {
+  background: #f8f9fa;
+  padding: 15px;
+  font-weight: 600;
+  color: #2c3e50;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.table-grid-row {
+  background: white;
+  padding: 12px 15px;
+  display: grid;
+  grid-template-columns: 120px 1fr 150px 140px 120px 120px 140px;
+  gap: 10px;
+  align-items: center;
+}
+
+.table-grid-row:hover {
+  background: #f5f5f5;
+}
+
+.table-grid-row.deal-row {
+  background: #f8f9fa;
+  font-weight: 600;
+}
+
+.table-grid-row.deal-row:hover {
+  background: #e3f2fd;
+}
+
+.table-grid-row.term-sheet-row {
+  background: white;
+  border-left: 3px solid #2196f3;
+  padding-left: 30px;
+}
+
+/* Mobile-first grid approach */
+@media (max-width: 768px) {
+  .table-grid-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 10px;
+  }
+  
+  .table-grid-row > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .table-grid-row > div::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #666;
+    margin-right: 10px;
+  }
+} 
+
+.pending-termsheets-section {
+  margin: 30px 0;
+}
+
+.pending-termsheets-section h3 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.pending-termsheets-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.pending-termsheets-table th,
+.pending-termsheets-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.pending-termsheets-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.pending-termsheets-table tr:last-child td {
+  border-bottom: none;
+}
+
+.pending-termsheets-table tr:hover {
+  background: #f5f5f5;
+}
+
+.status-badge.pending {
+  background: #ff9800;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.btn-xs {
+  padding: 4px 8px;
+  font-size: 11px;
+  border-radius: 4px;
+} 
