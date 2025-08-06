@@ -1,4 +1,4 @@
-/* E-Sign Modal Styles - Using App.css Colors */
+/* E-Sign Modal Styles */
 .e-sign-modal {
   max-width: 800px;
   width: 90%;
@@ -7,7 +7,7 @@
 }
 
 .e-sign-modal .modal-header {
-  background: linear-gradient(135deg, var(--icon-primary) 0%, #017a6f 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   padding: 20px;
   border-radius: 12px 12px 0 0;
@@ -24,7 +24,7 @@
 
 .e-sign-modal .modal-body {
   padding: 30px;
-  background: var(--screen-background);
+  background: white;
 }
 
 .e-sign-document {
@@ -34,13 +34,13 @@
 }
 
 .e-sign-document h4 {
-  color: var(--black);
+  color: #2c3e50;
   font-size: 1.3rem;
   font-weight: 600;
   margin: 0 0 15px 0;
   text-align: center;
   padding-bottom: 15px;
-  border-bottom: 2px solid var(--icon-primary);
+  border-bottom: 2px solid #e0e0e0;
 }
 
 .document-preview {
@@ -55,7 +55,7 @@
   align-items: center;
   gap: 15px;
   padding: 15px;
-  background: var(--screen-background);
+  background: white;
   border-radius: 6px;
   border: 1px solid #d0d0d0;
 }
@@ -72,11 +72,11 @@
 .document-preview .pdf-info p {
   margin: 5px 0;
   font-size: 0.9rem;
-  color: var(--icon-secondary);
+  color: #555;
 }
 
 .document-preview .pdf-info p strong {
-  color: var(--black);
+  color: #2c3e50;
   font-weight: 600;
 }
 
@@ -88,7 +88,7 @@
 }
 
 .signature-section h5 {
-  color: var(--black);
+  color: #2c3e50;
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0 0 20px 0;
@@ -103,7 +103,7 @@
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: var(--black);
+  color: #2c3e50;
   font-size: 0.9rem;
 }
 
@@ -113,23 +113,23 @@
   border: 1px solid #d0d0d0;
   border-radius: 6px;
   font-size: 0.9rem;
-  background: var(--screen-background);
-  color: var(--black);
+  background: white;
+  color: #555;
 }
 
 .signature-field input.readonly-field {
   background: #f5f5f5;
-  color: var(--icon-secondary);
+  color: #666;
   cursor: not-allowed;
 }
 
 .signature-consent {
   margin-top: 25px;
   padding: 20px;
-  background: var(--screen-background);
+  background: white;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
-  border-left: 4px solid var(--icon-primary);
+  border-left: 4px solid #3498db;
 }
 
 .signature-consent label {
@@ -138,7 +138,7 @@
   gap: 12px;
   font-size: 0.95rem;
   line-height: 1.5;
-  color: var(--black);
+  color: #2c3e50;
   cursor: pointer;
 }
 
@@ -146,11 +146,11 @@
   margin-top: 2px;
   width: 18px;
   height: 18px;
-  accent-color: var(--icon-primary);
+  accent-color: #3498db;
 }
 
 .signature-consent label:hover {
-  color: var(--icon-primary);
+  color: #3498db;
 }
 
 /* Modal Footer for E-Sign */
@@ -173,23 +173,23 @@
 }
 
 .e-sign-modal .modal-footer .btn-secondary {
-  background: var(--cta-secondary-bg);
-  color: var(--cta-secondary-text);
-  border: 1px solid var(--cta-secondary-border);
+  background: #6c757d;
+  color: white;
+  border: none;
 }
 
 .e-sign-modal .modal-footer .btn-secondary:hover {
-  background: #f5f5f5;
+  background: #5a6268;
 }
 
 .e-sign-modal .modal-footer .btn-primary {
-  background: var(--cta-primary-bg);
-  color: var(--cta-primary-text);
-  border: 1px solid var(--cta-primary-border);
+  background: #3498db;
+  color: white;
+  border: none;
 }
 
 .e-sign-modal .modal-footer .btn-primary:hover {
-  background: #e6ac00;
+  background: #2980b9;
 }
 
 .e-sign-modal .modal-footer .btn-primary:disabled {
@@ -265,7 +265,7 @@
   height: 16px;
   margin: -8px 0 0 -8px;
   border: 2px solid transparent;
-  border-top: 2px solid var(--cta-primary-text);
+  border-top: 2px solid white;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -301,16 +301,16 @@
 
 /* Document preview hover effects */
 .document-preview:hover {
-  border-color: var(--icon-primary);
-  box-shadow: 0 2px 8px rgba(1, 142, 130, 0.1);
+  border-color: #3498db;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.1);
   transition: all 0.3s ease;
 }
 
 /* Signature field focus states */
 .signature-field input:focus {
   outline: none;
-  border-color: var(--icon-primary);
-  box-shadow: 0 0 0 3px rgba(1, 142, 130, 0.1);
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
 }
 
 /* Checkbox custom styling */
@@ -321,15 +321,15 @@
   height: 20px;
   border: 2px solid #d0d0d0;
   border-radius: 4px;
-  background: var(--screen-background);
+  background: white;
   position: relative;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .signature-consent input[type="checkbox"]:checked {
-  background: var(--icon-primary);
-  border-color: var(--icon-primary);
+  background: #3498db;
+  border-color: #3498db;
 }
 
 .signature-consent input[type="checkbox"]:checked::after {
@@ -344,5 +344,5 @@
 }
 
 .signature-consent input[type="checkbox"]:hover {
-  border-color: var(--icon-primary);
+  border-color: #3498db;
 } 

@@ -114,7 +114,7 @@ const LenderCommitment = () => {
       });
 
       // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // await new Promise(resolve => setTimeout(resolve, 2000));
 
       // Simulate CommitmentSignature.status = Signed
       console.log('CommitmentSignature.status = Signed');
@@ -197,7 +197,7 @@ const LenderCommitment = () => {
   return (
     <div className="form-container">
       <div className="form-header">
-        <h1>Lender Commitment Review</h1>
+        <h1>Master Commitment Review</h1>
         <p>Review and accept your commitment to the credit facility</p>
         <div className="commitment-info">
           <p><strong>Deal ID:</strong> {commitment.dealId} | <strong>MC ID:</strong> {commitment.id}</p>

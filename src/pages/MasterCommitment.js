@@ -33,18 +33,20 @@ const MasterCommitment = () => {
   // Pre-fill form data from Term Sheet when component mounts
   useEffect(() => {
     if (termSheet) {
+      console.log('Term Sheet data received:', termSheet); // Debug log
+      
       setFormData(prev => ({
         ...prev,
-        borrowerEntity: termSheet.borrowerEntity,
+        borrowerEntity: termSheet.borrowerName || termSheet.borrowerEntity || '',
         facilityType: 'Revolver', // Default, could be from term sheet
-        commitmentAmount: termSheet.requestedCommitment,
-        advanceRate: termSheet.requestedAdvanceRate,
-        margin: termSheet.requestedMargin,
-        pricingIndex: termSheet.requestedPricingIndex,
+        commitmentAmount: termSheet.amount || termSheet.requestedCommitment || '',
+        advanceRate: termSheet.requestedAdvanceRate || '85.00',
+        margin: termSheet.requestedMargin || '350',
+        pricingIndex: termSheet.requestedPricingIndex || 'SOFR 1M',
         fixedRate: termSheet.requestedFixedRate || '',
-        maturityDate: termSheet.requestedMaturityDate,
-        drawFrequencyLimit: termSheet.requestedDrawFrequency,
-        covenantTemplate: termSheet.covenantTemplate,
+        maturityDate: termSheet.requestedMaturityDate || '2026-12-31',
+        drawFrequencyLimit: termSheet.requestedDrawFrequency || 'Monthly',
+        covenantTemplate: termSheet.covenantTemplate || 'Standard',
         // lenderGroup, collateralEligibilityRules, trustee remain empty for FA to fill
       }));
     }
@@ -55,16 +57,16 @@ const MasterCommitment = () => {
     const faEditableFields = ['lenderGroup', 'collateralEligibilityRules', 'trustee'];
     
     if (faEditableFields.includes(field)) {
-      setFormData(prev => ({
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+    
+    if (errors[field]) {
+      setErrors(prev => ({
         ...prev,
-        [field]: value
+        [field]: ''
       }));
-      
-      if (errors[field]) {
-        setErrors(prev => ({
-          ...prev,
-          [field]: ''
-        }));
       }
     }
   };
@@ -211,7 +213,7 @@ const MasterCommitment = () => {
               <label>Commitment Amount (USD)</label>
               <input
                 type="text"
-                value={`$${parseInt(formData.commitmentAmount).toLocaleString()}`}
+                value={formData.commitmentAmount ? `$${parseInt(formData.commitmentAmount.replace(/[^0-9]/g, '')).toLocaleString()}` : ''}
                 readOnly
                 className="readonly-field"
               />
