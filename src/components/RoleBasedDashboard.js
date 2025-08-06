@@ -2374,11 +2374,13 @@ const RoleBasedDashboard = ({ userRole }) => {
   };
 
   const LenderDashboard = () => {
-    const pendingCommitments = [
+    const allItems = [
+      // Master Commitments
       {
         id: "MC-2024-001",
+        type: "commitment",
         borrowerName: "ABC Corporation",
-        commitmentAmount: "$100,000,000",
+        amount: "$100,000,000",
         status: "Pending_Lender",
         submittedDate: "2024-01-15",
         currentAcceptance: 75,
@@ -2386,20 +2388,96 @@ const RoleBasedDashboard = ({ userRole }) => {
       },
       {
         id: "MC-2024-002",
+        type: "commitment",
         borrowerName: "XYZ Holdings",
-        commitmentAmount: "$75,000,000",
-        status: "Pending_Lender",
+        amount: "$75,000,000",
+        status: "Active",
         submittedDate: "2024-01-20",
-        currentAcceptance: 50,
+        currentAcceptance: 100,
         acceptanceThreshold: 100,
+      },
+      // Funding Notices
+      {
+        id: "FN-2024-001",
+        type: "funding_notice",
+        facilityId: "FAC-2024-001",
+        borrowerName: "ABC Corporation",
+        amount: "$25,000,000",
+        status: "Notice Issued",
+        deadline: "2024-01-27",
+        issueDate: "2024-01-20",
+      },
+      {
+        id: "FN-2024-002",
+        type: "funding_notice",
+        facilityId: "FAC-2024-002",
+        borrowerName: "XYZ Holdings",
+        amount: "$15,000,000",
+        status: "Funds Confirmed",
+        deadline: "2024-01-25",
+        issueDate: "2024-01-18",
+      },
+      {
+        id: "FN-2024-003",
+        type: "funding_notice",
+        facilityId: "FAC-2024-003",
+        borrowerName: "DEF Industries",
+        amount: "$30,000,000",
+        status: "Treasury Verified",
+        deadline: "2024-01-30",
+        issueDate: "2024-01-22",
+      },
+    ];
+
+    const notifications = [
+      {
+        id: 1,
+        type: "funding_notice",
+        title: "New Funding Notice",
+        message: "Funding Notice FN-2024-001 requires $25M wire transfer by 2024-01-27",
+        timestamp: "2024-01-20 09:15 AM",
+        read: false,
+        priority: "high",
+      },
+      {
+        id: 2,
+        type: "funding_notice",
+        title: "Funds Confirmed",
+        message: "Your wire transfer for FN-2024-002 has been confirmed. Waiting for Treasury verification.",
+        timestamp: "2024-01-18 11:30 AM",
+        read: false,
+        priority: "medium",
+      },
+      {
+        id: 3,
+        type: "funding_notice",
+        title: "Treasury Verification Complete",
+        message: "Treasury Operations has verified your wire transfer for FN-2024-003. Funding is complete!",
+        timestamp: "2024-01-15 03:45 PM",
+        read: false,
+        priority: "medium",
+      },
+      {
+        id: 4,
+        type: "commitment_request",
+        title: "Master Commitment Review",
+        message: "New Master Commitment MC-2024-003 requires your review and signature",
+        timestamp: "2024-01-14 10:30 AM",
+        read: false,
+        priority: "high",
       },
     ];
 
     const getStatusColor = (status) => {
       switch (status) {
         case "Pending_Lender":
+        case "Notice Issued":
           return "warning";
         case "Active":
+        case "Funds Confirmed":
+          return "info";
+        case "Treasury Verified":
+        case "Completed":
           return "success";
         case "Rejected":
           return "error";
@@ -2408,63 +2486,166 @@ const RoleBasedDashboard = ({ userRole }) => {
       }
     };
 
+   
+
+    const getItemTypeLabel = (type) => {
+      return type === "commitment" ? "Master Commitment" : "Funding Notice";
+    };
+
+    const getActionButton = (item) => {
+      if (item.type === "commitment") {
+        if (item.status === "Pending_Lender") {
+          return (
+            <Button
+              variant="contained"
+              size="small"
+              component={Link}
+              to={`/lender-commitment/${item.id}`}
+              startIcon={<ViewIcon />}
+              color="primary"
+            >
+              Review & Approve
+            </Button>
+          );
+        } else if (item.status === "Active") {
+          return (
+            <Button
+              variant="outlined"
+              size="small"
+              disabled
+              color="success"
+            >
+              Already Approved
+            </Button>
+          );
+        } else if (item.status === "Rejected") {
+          return (
+            <Button
+              variant="outlined"
+              size="small"
+              disabled
+              color="error"
+            >
+              Rejected
+            </Button>
+          );
+        }
+      } else if (item.type === "funding_notice") {
+        if (item.status === "Notice Issued") {
+          return (
+            <Button
+              variant="contained"
+              size="small"
+              component={Link}
+              to={`/lender-funding-notice/${item.id}`}
+              startIcon={<ViewIcon />}
+              color="primary"
+            >
+              Wire Funds
+            </Button>
+          );
+        } else if (item.status === "Funds Confirmed") {
+          return (
+            <Button
+              variant="outlined"
+              size="small"
+              disabled
+              color="info"
+            >
+              Funds Confirmed
+            </Button>
+          );
+        } else if (item.status === "Treasury Verified") {
+          return (
+            <Button
+              variant="outlined"
+              size="small"
+              disabled
+              color="success"
+            >
+              Treasury Verified
+            </Button>
+          );
+        } else if (item.status === "Completed") {
+          return (
+            <Button
+              variant="outlined"
+              size="small"
+              disabled
+              color="success"
+            >
+              Completed
+            </Button>
+          );
+        }
+      }
+      
+      return (
+        <Button
+          variant="outlined"
+          size="small"
+          disabled
+        >
+          N/A
+        </Button>
+      );
+    };
+
     return (
       <div style={{ padding: "20px" }}>
         <Typography variant="h4" gutterBottom>
           Lender Dashboard
         </Typography>
 
+        {/* Notifications Section */}
+       
+
+        {/* Unified Items Table */}
         <Card>
           <CardContent>
-           
+            <Typography variant="h6" gutterBottom>
+              📋 All Items (Commitments & Funding Notices)
+            </Typography>
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell>
-                    <strong>Master Commitment ID</strong>
-                  </TableCell>
-                  <TableCell>
-                    <strong>Borrower</strong>
-                  </TableCell>
-                  <TableCell>
-                    <strong>Commitment Amount</strong>
-                  </TableCell>
-                  <TableCell>
-                    <strong>Submitted Date</strong>
-                  </TableCell>
-                  <TableCell>
-                    <strong>Status</strong>
-                  </TableCell>
-                  <TableCell>
-                    <strong>Action</strong>
-                  </TableCell>
+                  <TableCell><strong>Type</strong></TableCell>
+                  <TableCell><strong>ID</strong></TableCell>
+                  <TableCell><strong>Borrower</strong></TableCell>
+                  <TableCell><strong>Amount</strong></TableCell>
+                  <TableCell><strong>Date</strong></TableCell>
+                  <TableCell><strong>Status</strong></TableCell>
+                  <TableCell><strong>Action</strong></TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {pendingCommitments.map((commitment) => (
-                  <TableRow key={commitment.id}>
-                    <TableCell>{commitment.id}</TableCell>
-                    <TableCell>{commitment.borrowerName}</TableCell>
-                    <TableCell>{commitment.commitmentAmount}</TableCell>
-                    <TableCell>{commitment.submittedDate}</TableCell>
+                {allItems.map((item) => (
+                  <TableRow key={item.id}>
                     <TableCell>
                       <Chip
-                        label={commitment.status.replace("_", " ")}
-                        color={getStatusColor(commitment.status)}
+                        label={getItemTypeLabel(item.type)}
+                        color={item.type === "commitment" ? "primary" : "secondary"}
+                        size="small"
+                      />
+                    </TableCell>
+                    <TableCell>{item.id}</TableCell>
+                    <TableCell>{item.borrowerName}</TableCell>
+                    <TableCell>{item.amount}</TableCell>
+                    <TableCell>
+                      {item.type === "commitment" 
+                        ? item.submittedDate 
+                        : item.issueDate
+                      }
+                    </TableCell>
+                    <TableCell>
+                      <Chip
+                        label={item.status.replace("_", " ")}
+                        color={getStatusColor(item.status)}
                         size="small"
                       />
                     </TableCell>
                     <TableCell>
-                      <Button
-                        variant="contained"
-                        size="small"
-                        component={Link}
-                        to={`/lender-commitment/${commitment.id}`}
-                        startIcon={<ViewIcon />}
-                        color="primary"
-                      >
-                        View Commitment
-                      </Button>
+                      {getActionButton(item)}
                     </TableCell>
                   </TableRow>
                 ))}

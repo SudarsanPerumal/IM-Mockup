@@ -33,9 +33,10 @@ const creditFacilities = [
     facilityName: 'Facility A',
     stage: 'Term Sheet',
     status: 'Awaiting FA Approval',
-    advanceRate: '80%',
-    borrowingBase: '$10M',
-    availableLimit: '$8M',
+    commitment: '$10M',
+    borrowingBase: '$8M',
+    outstandingDraws: '$0M',
+    availableAmount: '$8M', // min($10M, $8M) - $0M = $8M
     lastActionDate: '2025-08-01'
   },
   {
@@ -43,30 +44,33 @@ const creditFacilities = [
     facilityName: 'Facility B',
     stage: 'Master Commit',
     status: 'Pending Lender Commitment',
-    advanceRate: '75%',
+    commitment: '$15M',
     borrowingBase: '$12M',
-    availableLimit: '$9M',
+    outstandingDraws: '$0M',
+    availableAmount: '$12M', // min($15M, $12M) - $0M = $12M
     lastActionDate: '2025-07-25'
   },
   {
     id: 'CF003',
     facilityName: 'Facility C',
     stage: 'Funding',
-    status: 'Funded',
-    advanceRate: '70%',
-    borrowingBase: '$15M',
-    availableLimit: '$0M',
+    status: 'Active',
+    commitment: '$20M',
+    borrowingBase: '$18M',
+    outstandingDraws: '$5M',
+    availableAmount: '$13M', // min($20M, $18M) - $5M = $13M
     lastActionDate: '2025-08-03'
   },
   {
-    id: 'CF003',
-    facilityName: 'Facility C',
+    id: 'CF004',
+    facilityName: 'Facility D',
     stage: 'Funding',
-    status: 'Acitve',
-    advanceRate: '70%',
-    borrowingBase: '$15M',
-    availableLimit: '$8M',
-    lastActionDate: '2025-08-03'
+    status: 'Active',
+    commitment: '$25M',
+    borrowingBase: '$30M',
+    outstandingDraws: '$8M',
+    availableAmount: '$17M', // min($25M, $30M) - $8M = $17M
+    lastActionDate: '2025-08-05'
   }
 ];
 
@@ -330,7 +334,7 @@ const BorrowerDashboard = () => {
   };
 
   const getActionButton = (facility) => {
-    if (facility.stage === 'Funding' && parseFloat(facility.availableLimit.replace(/[$,]/g, '')) > 0) {
+    if (facility.stage === 'Funding' && parseFloat(facility.availableAmount.replace(/[$,]/g, '')) > 0) {
       return (
         <Button
           variant="contained"
@@ -402,7 +406,7 @@ const BorrowerDashboard = () => {
   };
 
   const isFundingEligible = (facility) => {
-    return facility.stage === 'Funding' && parseFloat(facility.availableLimit.replace(/[$,]/g, '')) > 0;
+    return facility.stage === 'Funding' && parseFloat(facility.availableAmount.replace(/[$,]/g, '')) > 0;
   };
 
   return (
@@ -438,9 +442,10 @@ const BorrowerDashboard = () => {
                 <TableCell sx={{ fontWeight: 'bold' }}>Facility Name</TableCell>
                 <TableCell sx={{ fontWeight: 'bold' }}>Stage</TableCell>
                 <TableCell sx={{ fontWeight: 'bold' }}>Status</TableCell>
-                <TableCell sx={{ fontWeight: 'bold' }}>Advance Rate</TableCell>
+                <TableCell sx={{ fontWeight: 'bold' }}>Commitment</TableCell>
                 <TableCell sx={{ fontWeight: 'bold' }}>Borrowing Base</TableCell>
-                <TableCell sx={{ fontWeight: 'bold' }}>Available Limit</TableCell>
+                <TableCell sx={{ fontWeight: 'bold' }}>Outstanding Draws</TableCell>
+                <TableCell sx={{ fontWeight: 'bold' }}>Available Amount</TableCell>
                 <TableCell sx={{ fontWeight: 'bold' }}>Last Action</TableCell>
                 <TableCell sx={{ fontWeight: 'bold' }}>Action</TableCell>
               </TableRow>
@@ -474,7 +479,7 @@ const BorrowerDashboard = () => {
                   </TableCell>
                   <TableCell>
                     <Typography variant="body2" fontWeight="bold">
-                      {facility.advanceRate}
+                      {facility.commitment}
                     </Typography>
                   </TableCell>
                   <TableCell>
@@ -483,18 +488,60 @@ const BorrowerDashboard = () => {
                     </Typography>
                   </TableCell>
                   <TableCell>
-                    <Typography 
-                      variant="body2" 
-                      fontWeight="bold"
-                      color={facility.availableLimit === '$0M' ? 'text.secondary' : 'success.main'}
-                    >
-                      {facility.availableLimit}
-                      {isFundingEligible(facility) && (
-                        <Typography variant="caption" display="block" color="success.main">
-                          Available for Funding
-                        </Typography>
-                      )}
+                    <Typography variant="body2" fontWeight="bold" color="text.secondary">
+                      {facility.outstandingDraws}
                     </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Tooltip 
+                      title={
+                        <div>
+                          <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
+                            Available Amount Formula (BRD):
+                          </Typography>
+                          <Typography variant="body2">
+                            <strong>Available Amount = min(Commitment, Borrowing Base) − Outstanding Draws</strong>
+                          </Typography>
+                          <Typography variant="caption" display="block" sx={{ mt: 1 }}>
+                            • Commitment: {facility.commitment} (maximum facility amount)
+                          </Typography>
+                          <Typography variant="caption" display="block">
+                            • Borrowing Base: {facility.borrowingBase} (collateral-based limit)
+                          </Typography>
+                          <Typography variant="caption" display="block">
+                            • Outstanding Draws: {facility.outstandingDraws} (previously drawn)
+                          </Typography>
+                          <Typography variant="caption" display="block" sx={{ mt: 1, fontStyle: 'italic' }}>
+                            Uses the lower of Commitment or Borrowing Base as the constraint
+                          </Typography>
+                        </div>
+                      }
+                      arrow
+                      placement="top"
+                      sx={{
+                        '& .MuiTooltip-tooltip': {
+                          backgroundColor: '#2c3e50',
+                          color: 'white',
+                          fontSize: '12px',
+                          maxWidth: '300px',
+                          padding: '12px'
+                        }
+                      }}
+                    >
+                      <Typography 
+                        variant="body2" 
+                        fontWeight="bold"
+                        color={facility.availableAmount === '$0M' ? 'text.secondary' : 'success.main'}
+                        sx={{ cursor: 'help' }}
+                      >
+                        {facility.availableAmount}
+                        {isFundingEligible(facility) && (
+                          <Typography variant="caption" display="block" color="success.main">
+                            Available for Funding
+                          </Typography>
+                        )}
+                      </Typography>
+                    </Tooltip>
                   </TableCell>
                   <TableCell>
                     <Typography variant="body2" color="text.secondary">

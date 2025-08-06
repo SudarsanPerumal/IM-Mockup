@@ -10,6 +10,7 @@ import TermSheetReview from './pages/TermSheetReview';
 import MasterCommitment from './pages/MasterCommitment';
 import LenderCommitment from './pages/LenderCommitment';
 import LenderCommitmentAcceptance from './pages/LenderCommitmentAcceptance';
+import LenderFundingNotice from './pages/LenderFundingNotice';
 import FundingRequestReview from './pages/FundingRequestReview';
 import Login from './pages/Login';
 
@@ -125,6 +126,10 @@ function App() {
               <Route path="/funding-request/create/:poolId" element={<FundingRequestCreate />} />
               <Route path="/funding-requests" element={<FundingRequestsList />} />
               
+              {/* Funding Notice Routes */}
+              <Route path="/lender-funding-notice/:id" element={<LenderFundingNotice />} />
+              <Route path="/lender-funding-notice" element={<LenderFundingNotice />} />
+
               {/* Add Funding Request Review Route for Facility Agent */}
               <Route path="/funding-request-review/:id" element={<FundingRequestReview />} />
 
