@@ -13,6 +13,7 @@ import LenderCommitmentAcceptance from './pages/LenderCommitmentAcceptance';
 import LenderFundingNotice from './pages/LenderFundingNotice';
 import FundingRequestReview from './pages/FundingRequestReview';
 import Login from './pages/Login';
+import IssuerUIMockup from './pages/IssuerUIMockup';
 
 function App() {
   const [userRole, setUserRole] = useState('');
@@ -47,7 +48,7 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+    <div className="App">
         {!isAuthenticated ? (
           // Show Login when not authenticated
           <Login onLoginSuccess={handleLoginSuccess} />
@@ -55,7 +56,7 @@ function App() {
           // Show authenticated content
           <>
             {/* Header with user info and logout */}
-            <div style={{
+            {/* <div style={{
               background: 'white',
               padding: '10px 20px',
               borderBottom: '1px solid #e0e0e0',
@@ -81,7 +82,7 @@ function App() {
               >
                 Logout
               </button>
-            </div>
+            </div> */}
 
           <Routes>
               {/* Main Dashboard Route */}
@@ -133,12 +134,15 @@ function App() {
               {/* Add Funding Request Review Route for Facility Agent */}
               <Route path="/funding-request-review/:id" element={<FundingRequestReview />} />
 
+              {/* Issuer UI Mockup Route */}
+              <Route path="/issuer-ui" element={<IssuerUIMockup />} />
+
               {/* Catch-all route */}
               <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
           </>
         )}
-      </div>
+    </div>
     </Router>
   );
 }

@@ -1,77 +1,86 @@
-import React, { useState } from 'react';
-import { 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableHead, 
-  TableRow, 
-  Button, 
-  Paper, 
-  Typography, 
+import React, { useState } from "react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Button,
+  Paper,
+  Typography,
   Box,
   Chip,
   Card,
   CardContent,
-  Tooltip
-} from '@mui/material';
-import { 
+  Tooltip,
+} from "@mui/material";
+import {
   Add as PlusIcon,
   GetApp as FundingIcon,
   Visibility as ViewIcon,
-  Edit as EditIcon
-} from '@mui/icons-material';
-import { Modal, Form, Input, Select, DatePicker, Upload, message, InputNumber } from 'antd';
-import { UploadOutlined, CalculatorOutlined } from '@ant-design/icons';
-import dayjs from 'dayjs';
+  Edit as EditIcon,
+} from "@mui/icons-material";
+import {
+  Modal,
+  Form,
+  Input,
+  Select,
+  DatePicker,
+  Upload,
+  message,
+  InputNumber,
+} from "antd";
+import { UploadOutlined, CalculatorOutlined } from "@ant-design/icons";
+import dayjs from "dayjs";
 
 const { Option } = Select;
 const { TextArea } = Input;
 
 const creditFacilities = [
   {
-    id: 'CF001',
-    facilityName: 'Facility A',
-    stage: 'Term Sheet',
-    status: 'Awaiting FA Approval',
-    commitment: '$10M',
-    borrowingBase: '$8M',
-    outstandingDraws: '$0M',
-    availableAmount: '$8M', // min($10M, $8M) - $0M = $8M
-    lastActionDate: '2025-08-01'
+    id: "CF001",
+    facilityName: "Facility A",
+    stage: "Term Sheet",
+    status: "Awaiting FA Approval",
+    commitment: "$10M",
+    borrowingBase: "$8M",
+    outstandingDraws: "$0M",
+    availableAmount: "$8M", // min($10M, $8M) - $0M = $8M
+    lastActionDate: "2025-08-01",
   },
   {
-    id: 'CF002',
-    facilityName: 'Facility B',
-    stage: 'Master Commit',
-    status: 'Pending Lender Commitment',
-    commitment: '$15M',
-    borrowingBase: '$12M',
-    outstandingDraws: '$0M',
-    availableAmount: '$12M', // min($15M, $12M) - $0M = $12M
-    lastActionDate: '2025-07-25'
+    id: "CF002",
+    facilityName: "Facility B",
+    stage: "Master Commit",
+    status: "Pending Lender Commitment",
+    commitment: "$15M",
+    borrowingBase: "$12M",
+    outstandingDraws: "$0M",
+    availableAmount: "$12M", // min($15M, $12M) - $0M = $12M
+    lastActionDate: "2025-07-25",
   },
   {
-    id: 'CF003',
-    facilityName: 'Facility C',
-    stage: 'Funding',
-    status: 'Active',
-    commitment: '$20M',
-    borrowingBase: '$18M',
-    outstandingDraws: '$5M',
-    availableAmount: '$13M', // min($20M, $18M) - $5M = $13M
-    lastActionDate: '2025-08-03'
+    id: "CF003",
+    facilityName: "Facility C",
+    stage: "Funding",
+    status: "Active",
+    commitment: "$20M",
+    borrowingBase: "$18M",
+    outstandingDraws: "$5M",
+    availableAmount: "$13M", // min($20M, $18M) - $5M = $13M
+    lastActionDate: "2025-08-03",
   },
   {
-    id: 'CF004',
-    facilityName: 'Facility D',
-    stage: 'Funding',
-    status: 'Active',
-    commitment: '$25M',
-    borrowingBase: '$30M',
-    outstandingDraws: '$8M',
-    availableAmount: '$17M', // min($25M, $30M) - $8M = $17M
-    lastActionDate: '2025-08-05'
-  }
+    id: "CF004",
+    facilityName: "Facility D",
+    stage: "Funding",
+    status: "Active",
+    commitment: "$25M",
+    borrowingBase: "$30M",
+    outstandingDraws: "$8M",
+    availableAmount: "$17M", // min($25M, $30M) - $8M = $17M
+    lastActionDate: "2025-08-05",
+  },
 ];
 
 const BorrowerDashboard = () => {
@@ -80,21 +89,58 @@ const BorrowerDashboard = () => {
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
   const [formData, setFormData] = useState({
-    borrowerEntity: '',
-    requestedCommitment: '',
-    requestedAdvanceRate: '',
-    requestedMargin: '350',
-    requestedPricingIndex: '',
-    requestedFixedRate: '',
-    requestedMaturityDate: '',
-    requestedDrawFrequency: '',
-    covenantTemplate: '',
+    borrowerEntity: "",
+    requestedCommitment: "",
+    requestedAdvanceRate: "",
+    requestedMargin: "350",
+    requestedPricingIndex: "",
+    requestedFixedRate: "",
+    requestedMaturityDate: "",
+    requestedDrawFrequency: "",
+    covenantTemplate: "",
     customCovenantFile: null,
-    collateralProfile: '',
+    collateralProfile: "",
     collateralFile: null,
     financialsFile: null,
-    kycFile: null
+    kycFile: null,
   });
+
+  // Add selected pool state
+  const [selectedPool, setSelectedPool] = useState(null);
+
+  // Add pools data
+  const pools = [
+    {
+      id: "POOL-2024-001",
+      name: "Residential Mortgage Pool",
+      assetClass: "Residential Mortgages",
+      totalAmount: "$50,000,000",
+      assetCount: 250,
+      status: "Active",
+      createdAt: "2024-01-10",
+      borrowerName: "ABC Corporation",
+    },
+    {
+      id: "POOL-2024-002",
+      name: "Commercial RE Pool",
+      assetClass: "Commercial Real Estate",
+      totalAmount: "$75,000,000",
+      assetCount: 15,
+      status: "Active",
+      createdAt: "2024-01-15",
+      borrowerName: "XYZ Holdings",
+    },
+    {
+      id: "POOL-2024-003",
+      name: "Auto Loan Pool",
+      assetClass: "Auto Loans",
+      totalAmount: "$30,000,000",
+      assetCount: 500,
+      status: "Draft",
+      createdAt: "2024-01-20",
+      borrowerName: "DEF Industries",
+    },
+  ];
 
   // Add these new states for Funding Request modal
   const [isFundingModalVisible, setIsFundingModalVisible] = useState(false);
@@ -102,16 +148,16 @@ const BorrowerDashboard = () => {
 
   // Funding Request form data (from FundingRequest.js)
   const [fundingData, setFundingData] = useState({
-    masterCommitmentId: '',
-    fundingRequestId: '',
-    drawAmount: '',
-    fundingDate: '',
-    purposeOfFunds: '',
-    purposeOther: '',
+    masterCommitmentId: "",
+    fundingRequestId: "",
+    drawAmount: "",
+    fundingDate: "",
+    purposeOfFunds: "",
+    purposeOther: "",
     collateralFile: null,
-    estimatedCollateralValue: '',
-    drawCurrency: 'USD',
-    notes: ''
+    estimatedCollateralValue: "",
+    drawCurrency: "USD",
+    notes: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -121,12 +167,12 @@ const BorrowerDashboard = () => {
   const handleSubmit = async (values) => {
     try {
       setLoading(true);
-      console.log('Term Sheet submitted:', values);
-      message.success('Term Sheet submitted successfully!');
+      console.log("Term Sheet submitted:", values);
+      message.success("Term Sheet submitted successfully!");
       setIsModalVisible(false);
       form.resetFields();
     } catch (error) {
-      message.error('Failed to submit term sheet');
+      message.error("Failed to submit term sheet");
     } finally {
       setLoading(false);
     }
@@ -143,37 +189,37 @@ const BorrowerDashboard = () => {
     setFundingData({
       masterCommitmentId: facility.id,
       fundingRequestId: `FR-${Date.now()}`,
-      drawAmount: '',
-      fundingDate: '',
-      purposeOfFunds: '',
-      purposeOther: '',
+      drawAmount: "",
+      fundingDate: "",
+      purposeOfFunds: "",
+      purposeOther: "",
       collateralFile: null,
-      estimatedCollateralValue: '',
-      drawCurrency: 'USD',
-      notes: ''
+      estimatedCollateralValue: "",
+      drawCurrency: "USD",
+      notes: "",
     });
     setIsFundingModalVisible(true);
   };
 
   const handleInputChange = (field, value) => {
-    setFundingData(prev => ({
+    setFundingData((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
-    
+
     if (errors[field]) {
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
-        [field]: ''
+        [field]: "",
       }));
     }
   };
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
-    setFundingData(prev => ({
+    setFundingData((prev) => ({
       ...prev,
-      collateralFile: file
+      collateralFile: file,
     }));
   };
 
@@ -181,16 +227,19 @@ const BorrowerDashboard = () => {
     const newErrors = {};
 
     if (!fundingData.drawAmount || parseFloat(fundingData.drawAmount) <= 0) {
-      newErrors.drawAmount = 'Draw amount must be greater than 0';
+      newErrors.drawAmount = "Draw amount must be greater than 0";
     }
     if (!fundingData.fundingDate) {
-      newErrors.fundingDate = 'Funding date is required';
+      newErrors.fundingDate = "Funding date is required";
     }
     if (!fundingData.purposeOfFunds) {
-      newErrors.purposeOfFunds = 'Purpose of funds is required';
+      newErrors.purposeOfFunds = "Purpose of funds is required";
     }
-    if (fundingData.purposeOfFunds === 'Other' && !fundingData.purposeOther.trim()) {
-      newErrors.purposeOther = 'Please specify the purpose';
+    if (
+      fundingData.purposeOfFunds === "Other" &&
+      !fundingData.purposeOther.trim()
+    ) {
+      newErrors.purposeOther = "Please specify the purpose";
     }
 
     setErrors(newErrors);
@@ -201,11 +250,13 @@ const BorrowerDashboard = () => {
     e.preventDefault();
     if (validateForm()) {
       setIsSubmitting(true);
-      console.log('Funding Request submitted:', fundingData);
-      
+      console.log("Funding Request submitted:", fundingData);
+
       // Simulate API call
       setTimeout(() => {
-        message.success('Funding Request submitted successfully! Facility Agent will review your request.');
+        message.success(
+          "Funding Request submitted successfully! Facility Agent will review your request."
+        );
         setIsSubmitting(false);
         setIsFundingModalVisible(false);
       }, 2000);
@@ -215,16 +266,16 @@ const BorrowerDashboard = () => {
   const handleFundingCancel = () => {
     setIsFundingModalVisible(false);
     setFundingData({
-      masterCommitmentId: '',
-      fundingRequestId: '',
-      drawAmount: '',
-      fundingDate: '',
-      purposeOfFunds: '',
-      purposeOther: '',
+      masterCommitmentId: "",
+      fundingRequestId: "",
+      drawAmount: "",
+      fundingDate: "",
+      purposeOfFunds: "",
+      purposeOther: "",
       collateralFile: null,
-      estimatedCollateralValue: '',
-      drawCurrency: 'USD',
-      notes: ''
+      estimatedCollateralValue: "",
+      drawCurrency: "USD",
+      notes: "",
     });
     setErrors({});
   };
@@ -247,13 +298,41 @@ const BorrowerDashboard = () => {
   };
 
   const handleFormChange = (changedValues, allValues) => {
-    setFormData(prev => ({ ...prev, ...allValues }));
-    console.log('Pricing Index changed:', allValues.requestedPricingIndex); // Debug
+    setFormData((prev) => ({ ...prev, ...allValues }));
+    console.log("Pricing Index changed:", allValues.requestedPricingIndex); // Debug
+
+    // Handle Pool selection and pre-fill data
+    if (changedValues.selectedPoolId) {
+      const selectedPool = pools.find(
+        (p) => p.id === changedValues.selectedPoolId
+      );
+      if (selectedPool) {
+        setFormData((prev) => ({
+          ...prev,
+          ...allValues,
+          collateralProfile: selectedPool.assetClass,
+          // Pre-fill commitment amount based on pool total
+          requestedCommitment: selectedPool.totalAmount.replace(/[$,]/g, ""),
+        }));
+      }
+    }
+
+    // Handle covenant template change
+    if (changedValues.covenantTemplate) {
+      setFormData((prev) => ({
+        ...prev,
+        ...allValues,
+        customCovenantFile:
+          changedValues.covenantTemplate === "Standard"
+            ? null
+            : prev.customCovenantFile,
+      }));
+    }
   };
 
   const getStatusChip = (status) => {
     switch (status) {
-      case 'Awaiting FA Approval':
+      case "Awaiting FA Approval":
         return (
           <Chip
             label="Awaiting FA Approval"
@@ -262,7 +341,7 @@ const BorrowerDashboard = () => {
             variant="filled"
           />
         );
-      case 'Pending Lender Commitment':
+      case "Pending Lender Commitment":
         return (
           <Chip
             label="Pending Lender Commitment"
@@ -271,14 +350,9 @@ const BorrowerDashboard = () => {
             variant="filled"
           />
         );
-      case 'Funded':
+      case "Funded":
         return (
-          <Chip
-            label="Funded"
-            color="success"
-            size="small"
-            variant="filled"
-          />
+          <Chip label="Funded" color="success" size="small" variant="filled" />
         );
       default:
         return (
@@ -294,7 +368,7 @@ const BorrowerDashboard = () => {
 
   const getStageChip = (stage) => {
     switch (stage) {
-      case 'Term Sheet':
+      case "Term Sheet":
         return (
           <Chip
             label="Term Sheet"
@@ -303,7 +377,7 @@ const BorrowerDashboard = () => {
             variant="outlined"
           />
         );
-      case 'Master Commit':
+      case "Master Commit":
         return (
           <Chip
             label="Master Commit"
@@ -312,7 +386,7 @@ const BorrowerDashboard = () => {
             variant="outlined"
           />
         );
-      case 'Funding':
+      case "Funding":
         return (
           <Chip
             label="Funding"
@@ -323,18 +397,16 @@ const BorrowerDashboard = () => {
         );
       default:
         return (
-          <Chip
-            label={stage}
-            color="default"
-            size="small"
-            variant="outlined"
-          />
+          <Chip label={stage} color="default" size="small" variant="outlined" />
         );
     }
   };
 
   const getActionButton = (facility) => {
-    if (facility.stage === 'Funding' && parseFloat(facility.availableAmount.replace(/[$,]/g, '')) > 0) {
+    if (
+      facility.stage === "Funding" &&
+      parseFloat(facility.availableAmount.replace(/[$,]/g, "")) > 0
+    ) {
       return (
         <Button
           variant="contained"
@@ -347,9 +419,9 @@ const BorrowerDashboard = () => {
         </Button>
       );
     }
-    
+
     switch (facility.stage) {
-      case 'Term Sheet':
+      case "Term Sheet":
         return (
           <Button
             variant="outlined"
@@ -361,7 +433,7 @@ const BorrowerDashboard = () => {
             Edit Term Sheet
           </Button>
         );
-      case 'Master Commit':
+      case "Master Commit":
         return (
           <Button
             variant="outlined"
@@ -373,7 +445,7 @@ const BorrowerDashboard = () => {
             View Details
           </Button>
         );
-      case 'Funding':
+      case "Funding":
         return (
           <Tooltip title="No available limit for funding requests">
             <span>
@@ -406,23 +478,28 @@ const BorrowerDashboard = () => {
   };
 
   const isFundingEligible = (facility) => {
-    return facility.stage === 'Funding' && parseFloat(facility.availableAmount.replace(/[$,]/g, '')) > 0;
+    return (
+      facility.stage === "Funding" &&
+      parseFloat(facility.availableAmount.replace(/[$,]/g, "")) > 0
+    );
   };
 
   return (
     <Box sx={{ padding: 3 }}>
       {/* Header */}
-      <Box sx={{ 
-        display: 'flex', 
-        justifyContent: 'space-between', 
-        alignItems: 'center', 
-        marginBottom: 3 
-      }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: 3,
+        }}
+      >
         <Typography variant="h4" component="h1" fontWeight="bold">
           Credit Facilities Dashboard
         </Typography>
-        <Button 
-          variant="contained" 
+        <Button
+          variant="contained"
           color="primary"
           startIcon={<PlusIcon />}
           onClick={showModal}
@@ -431,38 +508,51 @@ const BorrowerDashboard = () => {
         </Button>
       </Box>
 
-
       {/* Table Card */}
       <Card sx={{ boxShadow: 2 }}>
         <CardContent sx={{ padding: 3 }}>
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell sx={{ fontWeight: 'bold' }}>Facility ID</TableCell>
-                <TableCell sx={{ fontWeight: 'bold' }}>Facility Name</TableCell>
-                <TableCell sx={{ fontWeight: 'bold' }}>Stage</TableCell>
-                <TableCell sx={{ fontWeight: 'bold' }}>Status</TableCell>
-                <TableCell sx={{ fontWeight: 'bold' }}>Commitment</TableCell>
-                <TableCell sx={{ fontWeight: 'bold' }}>Borrowing Base</TableCell>
-                <TableCell sx={{ fontWeight: 'bold' }}>Outstanding Draws</TableCell>
-                <TableCell sx={{ fontWeight: 'bold' }}>Available Amount</TableCell>
-                <TableCell sx={{ fontWeight: 'bold' }}>Last Action</TableCell>
-                <TableCell sx={{ fontWeight: 'bold' }}>Action</TableCell>
+                <TableCell sx={{ fontWeight: "bold" }}>Facility ID</TableCell>
+                <TableCell sx={{ fontWeight: "bold" }}>Facility Name</TableCell>
+                <TableCell sx={{ fontWeight: "bold" }}>Stage</TableCell>
+                <TableCell sx={{ fontWeight: "bold" }}>Status</TableCell>
+                <TableCell sx={{ fontWeight: "bold" }}>Commitment</TableCell>
+                <TableCell sx={{ fontWeight: "bold" }}>
+                  Borrowing Base
+                </TableCell>
+                <TableCell sx={{ fontWeight: "bold" }}>
+                  Outstanding Draws
+                </TableCell>
+                <TableCell sx={{ fontWeight: "bold" }}>
+                  Available Amount
+                </TableCell>
+                <TableCell sx={{ fontWeight: "bold" }}>Last Action</TableCell>
+                <TableCell sx={{ fontWeight: "bold" }}>Action</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {creditFacilities.map((facility) => (
-                <TableRow 
+                <TableRow
                   key={facility.id}
                   sx={{
-                    backgroundColor: isFundingEligible(facility) ? '#f8fff8' : 'inherit',
-                    '&:hover': {
-                      backgroundColor: isFundingEligible(facility) ? '#f0fff0' : '#f5f5f5'
-                    }
+                    backgroundColor: isFundingEligible(facility)
+                      ? "#f8fff8"
+                      : "inherit",
+                    "&:hover": {
+                      backgroundColor: isFundingEligible(facility)
+                        ? "#f0fff0"
+                        : "#f5f5f5",
+                    },
                   }}
                 >
                   <TableCell>
-                    <Typography variant="body2" fontFamily="monospace" fontWeight="bold">
+                    <Typography
+                      variant="body2"
+                      fontFamily="monospace"
+                      fontWeight="bold"
+                    >
                       {facility.id}
                     </Typography>
                   </TableCell>
@@ -471,12 +561,8 @@ const BorrowerDashboard = () => {
                       {facility.facilityName}
                     </Typography>
                   </TableCell>
-                  <TableCell>
-                    {getStageChip(facility.stage)}
-                  </TableCell>
-                  <TableCell>
-                    {getStatusChip(facility.status)}
-                  </TableCell>
+                  <TableCell>{getStageChip(facility.stage)}</TableCell>
+                  <TableCell>{getStatusChip(facility.status)}</TableCell>
                   <TableCell>
                     <Typography variant="body2" fontWeight="bold">
                       {facility.commitment}
@@ -488,55 +574,86 @@ const BorrowerDashboard = () => {
                     </Typography>
                   </TableCell>
                   <TableCell>
-                    <Typography variant="body2" fontWeight="bold" color="text.secondary">
+                    <Typography
+                      variant="body2"
+                      fontWeight="bold"
+                      color="text.secondary"
+                    >
                       {facility.outstandingDraws}
                     </Typography>
                   </TableCell>
                   <TableCell>
-                    <Tooltip 
+                    <Tooltip
                       title={
                         <div>
-                          <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
+                          <Typography
+                            variant="subtitle2"
+                            fontWeight="bold"
+                            gutterBottom
+                          >
                             Available Amount Formula (BRD):
                           </Typography>
                           <Typography variant="body2">
-                            <strong>Available Amount = min(Commitment, Borrowing Base) − Outstanding Draws</strong>
+                            <strong>
+                              Available Amount = min(Commitment, Borrowing Base)
+                              − Outstanding Draws
+                            </strong>
                           </Typography>
-                          <Typography variant="caption" display="block" sx={{ mt: 1 }}>
-                            • Commitment: {facility.commitment} (maximum facility amount)
+                          <Typography
+                            variant="caption"
+                            display="block"
+                            sx={{ mt: 1 }}
+                          >
+                            • Commitment: {facility.commitment} (maximum
+                            facility amount)
                           </Typography>
                           <Typography variant="caption" display="block">
-                            • Borrowing Base: {facility.borrowingBase} (collateral-based limit)
+                            • Borrowing Base: {facility.borrowingBase}{" "}
+                            (collateral-based limit)
                           </Typography>
                           <Typography variant="caption" display="block">
-                            • Outstanding Draws: {facility.outstandingDraws} (previously drawn)
+                            • Outstanding Draws: {facility.outstandingDraws}{" "}
+                            (previously drawn)
                           </Typography>
-                          <Typography variant="caption" display="block" sx={{ mt: 1, fontStyle: 'italic' }}>
-                            Uses the lower of Commitment or Borrowing Base as the constraint
+                          <Typography
+                            variant="caption"
+                            display="block"
+                            sx={{ mt: 1, fontStyle: "italic" }}
+                          >
+                            Uses the lower of Commitment or Borrowing Base as
+                            the constraint
                           </Typography>
                         </div>
                       }
                       arrow
                       placement="top"
                       sx={{
-                        '& .MuiTooltip-tooltip': {
-                          backgroundColor: '#2c3e50',
-                          color: 'white',
-                          fontSize: '12px',
-                          maxWidth: '300px',
-                          padding: '12px'
-                        }
+                        "& .MuiTooltip-tooltip": {
+                          backgroundColor: "#2c3e50",
+                          color: "white",
+                          fontSize: "12px",
+                          maxWidth: "300px",
+                          padding: "12px",
+                        },
                       }}
                     >
-                      <Typography 
-                        variant="body2" 
+                      <Typography
+                        variant="body2"
                         fontWeight="bold"
-                        color={facility.availableAmount === '$0M' ? 'text.secondary' : 'success.main'}
-                        sx={{ cursor: 'help' }}
+                        color={
+                          facility.availableAmount === "$0M"
+                            ? "text.secondary"
+                            : "success.main"
+                        }
+                        sx={{ cursor: "help" }}
                       >
                         {facility.availableAmount}
                         {isFundingEligible(facility) && (
-                          <Typography variant="caption" display="block" color="success.main">
+                          <Typography
+                            variant="caption"
+                            display="block"
+                            color="success.main"
+                          >
                             Available for Funding
                           </Typography>
                         )}
@@ -548,9 +665,7 @@ const BorrowerDashboard = () => {
                       {facility.lastActionDate}
                     </Typography>
                   </TableCell>
-                  <TableCell>
-                    {getActionButton(facility)}
-                  </TableCell>
+                  <TableCell>{getActionButton(facility)}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -574,24 +689,43 @@ const BorrowerDashboard = () => {
           onValuesChange={handleFormChange}
           initialValues={formData}
         >
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "16px",
+            }}
+          >
             {/* Basic Information */}
-            <Form.Item
+            {/* <Form.Item
               name="borrowerEntity"
               label="Borrower Entity"
-              rules={[{ required: true, message: 'Please select borrower entity' }]}
+              rules={[
+                { required: true, message: "Please select borrower entity" },
+              ]}
             >
               <Select placeholder="Select Borrower">
                 <Option value="borrower1">ABC Corporation</Option>
                 <Option value="borrower2">XYZ Holdings</Option>
                 <Option value="borrower3">DEF Industries</Option>
               </Select>
+            </Form.Item> */}
+            <Form.Item
+              name="borrowerEntity"
+              label="Borrower Entity"
+              rules={[
+                { required: true, message: "Please enter borrower entity" },
+              ]}
+            >
+              <Input placeholder="Borrower ABC" disabled />
             </Form.Item>
 
             <Form.Item
               name="requestedCommitment"
               label="Requested Commitment Amount"
-              rules={[{ required: true, message: 'Please enter commitment amount' }]}
+              rules={[
+                { required: true, message: "Please enter commitment amount" },
+              ]}
             >
               <Input placeholder="100,000,000" addonBefore="$" />
             </Form.Item>
@@ -599,15 +733,15 @@ const BorrowerDashboard = () => {
             <Form.Item
               name="requestedAdvanceRate"
               label="Requested Advance Rate"
-              rules={[{ required: true, message: 'Please enter advance rate' }]}
+              rules={[{ required: true, message: "Please enter advance rate" }]}
             >
               <Input placeholder="85.00" addonAfter="%" />
             </Form.Item>
 
             <Form.Item
               name="requestedMargin"
-              label="Requested Margin"
-              rules={[{ required: true, message: 'Please enter margin' }]}
+              label="Margin"
+              rules={[{ required: true, message: "Please enter margin" }]}
             >
               <Input placeholder="350" addonAfter="bps" />
             </Form.Item>
@@ -615,7 +749,9 @@ const BorrowerDashboard = () => {
             <Form.Item
               name="requestedPricingIndex"
               label="Requested Pricing Index"
-              rules={[{ required: true, message: 'Please select pricing index!' }]}
+              rules={[
+                { required: true, message: "Please select pricing index!" },
+              ]}
             >
               <Select placeholder="Select pricing index">
                 <Option value="SOFR 1M">SOFR 1M</Option>
@@ -628,15 +764,16 @@ const BorrowerDashboard = () => {
               name="requestedFixedRate"
               label="Requested Fixed Rate"
               rules={[
-                { 
-                  required: formData.requestedPricingIndex === 'Fixed', 
-                  message: 'Fixed rate is required when pricing index is Fixed!' 
-                }
+                {
+                  required: formData.requestedPricingIndex === "Fixed",
+                  message:
+                    "Fixed rate is required when pricing index is Fixed!",
+                },
               ]}
             >
-              <Input 
-                placeholder="Enter fixed rate" 
-                disabled={formData.requestedPricingIndex !== 'Fixed'}
+              <Input
+                placeholder="Enter fixed rate"
+                disabled={formData.requestedPricingIndex !== "Fixed"}
                 suffix="%"
               />
             </Form.Item>
@@ -644,15 +781,19 @@ const BorrowerDashboard = () => {
             <Form.Item
               name="requestedMaturityDate"
               label="Requested Maturity Date"
-              rules={[{ required: true, message: 'Please select maturity date' }]}
+              rules={[
+                { required: true, message: "Please select maturity date" },
+              ]}
             >
-              <DatePicker style={{ width: '100%' }} />
+              <DatePicker style={{ width: "100%" }} />
             </Form.Item>
 
             <Form.Item
               name="requestedDrawFrequency"
               label="Requested Draw Frequency"
-              rules={[{ required: true, message: 'Please select draw frequency' }]}
+              rules={[
+                { required: true, message: "Please select draw frequency" },
+              ]}
             >
               <Select placeholder="Select Frequency">
                 <Option value="Daily">Daily</Option>
@@ -665,7 +806,9 @@ const BorrowerDashboard = () => {
             <Form.Item
               name="covenantTemplate"
               label="Covenant Template"
-              rules={[{ required: true, message: 'Please select covenant template' }]}
+              rules={[
+                { required: true, message: "Please select covenant template" },
+              ]}
             >
               <Select placeholder="Select Template">
                 <Option value="Standard">Standard</Option>
@@ -673,10 +816,50 @@ const BorrowerDashboard = () => {
               </Select>
             </Form.Item>
 
+            {formData.covenantTemplate === "Custom" && (
+              <Form.Item
+                name="customCovenantFile"
+                label="Upload Custom Covenant Rules (XLSX)"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please upload custom covenant rules file",
+                  },
+                ]}
+              >
+                <Upload
+                  name="customCovenantFile"
+                  accept=".xlsx,.xls"
+                  beforeUpload={() => false}
+                  maxCount={1}
+                  onChange={(info) => {
+                    if (info.fileList.length > 0) {
+                      setFormData((prev) => ({
+                        ...prev,
+                        customCovenantFile: info.fileList[0].originFileObj,
+                      }));
+                    }
+                  }}
+                >
+                  <Button icon={<UploadOutlined />}>
+                    Upload Custom Covenant Rules (XLSX)
+                  </Button>
+                </Upload>
+                <div
+                  style={{ marginTop: "8px", fontSize: "12px", color: "#666" }}
+                >
+                  <strong>Required format:</strong> XLSX file with covenant
+                  rules and compliance parameters
+                </div>
+              </Form.Item>
+            )}
+
             <Form.Item
               name="collateralProfile"
               label="Collateral Profile"
-              rules={[{ required: true, message: 'Please enter collateral profile' }]}
+              rules={[
+                { required: true, message: "Please enter collateral profile" },
+              ]}
             >
               <Input placeholder="Residential Mortgages, Commercial RE" />
             </Form.Item>
@@ -686,7 +869,9 @@ const BorrowerDashboard = () => {
           <Form.Item
             name="financialsFile"
             label="Financial Statements"
-            rules={[{ required: true, message: 'Please upload financial statements' }]}
+            rules={[
+              { required: true, message: "Please upload financial statements" },
+            ]}
           >
             <Upload
               listType="text"
@@ -694,14 +879,16 @@ const BorrowerDashboard = () => {
               beforeUpload={() => false}
               accept=".pdf,.doc,.docx"
             >
-              <Button icon={<UploadOutlined />}>Upload Financial Statements</Button>
+              <Button icon={<UploadOutlined />}>
+                Upload Financial Statements
+              </Button>
             </Upload>
           </Form.Item>
 
           <Form.Item
             name="kycFile"
             label="KYC Documents"
-            rules={[{ required: true, message: 'Please upload KYC documents' }]}
+            rules={[{ required: true, message: "Please upload KYC documents" }]}
           >
             <Upload
               listType="text"
@@ -716,7 +903,9 @@ const BorrowerDashboard = () => {
           <Form.Item
             name="collateralFile"
             label="Collateral Data"
-            rules={[{ required: true, message: 'Please upload collateral data' }]}
+            rules={[
+              { required: true, message: "Please upload collateral data" },
+            ]}
           >
             <Upload
               listType="text"
@@ -729,17 +918,22 @@ const BorrowerDashboard = () => {
           </Form.Item>
 
           {/* Form Actions */}
-          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px', marginTop: '24px' }}>
-            <Button onClick={handleCancel}>
-              Cancel
-            </Button>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              gap: "12px",
+              marginTop: "24px",
+            }}
+          >
+            <Button onClick={handleCancel}>Cancel</Button>
             <Button type="primary" htmlType="submit" loading={loading}>
               Submit Term Sheet Application
             </Button>
           </div>
         </Form>
       </Modal>
-      
+
       {/* Funding Request Modal - Using FundingRequest.js code */}
       <Modal
         title="Funding Request"
@@ -751,21 +945,31 @@ const BorrowerDashboard = () => {
       >
         <div className="">
           <div className="form-header">
-            <h3>Submit a funding request against your approved Master Commitment.</h3>
+            <h3>
+              Submit a funding request against your approved Master Commitment.
+            </h3>
           </div>
 
           <form onSubmit={handleFundingSubmit}>
             <div className="form-section">
               <h4>Request Information</h4>
-              
-              <div style={{ display: 'flex', gap: '16px', marginBottom: '16px' }}>
+
+              <div
+                style={{ display: "flex", gap: "16px", marginBottom: "16px" }}
+              >
                 <div style={{ flex: 1 }}>
                   <label>Master Commitment ID</label>
                   <input
                     type="text"
                     value={fundingData.masterCommitmentId}
                     readOnly
-                    style={{ width: '100%', padding: '8px', border: '1px solid #d9d9d9', borderRadius: '6px', backgroundColor: '#f5f5f5' }}
+                    style={{
+                      width: "100%",
+                      padding: "8px",
+                      border: "1px solid #d9d9d9",
+                      borderRadius: "6px",
+                      backgroundColor: "#f5f5f5",
+                    }}
                   />
                 </div>
                 <div style={{ flex: 1 }}>
@@ -774,66 +978,123 @@ const BorrowerDashboard = () => {
                     type="text"
                     value={fundingData.fundingRequestId}
                     readOnly
-                    style={{ width: '100%', padding: '8px', border: '1px solid #d9d9d9', borderRadius: '6px', backgroundColor: '#f5f5f5' }}
+                    style={{
+                      width: "100%",
+                      padding: "8px",
+                      border: "1px solid #d9d9d9",
+                      borderRadius: "6px",
+                      backgroundColor: "#f5f5f5",
+                    }}
                   />
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '16px', marginBottom: '16px' }}>
+              <div
+                style={{ display: "flex", gap: "16px", marginBottom: "16px" }}
+              >
                 <div style={{ flex: 1 }}>
-                  <label style={{ color: 'red' }}>*</label>
+                  <label style={{ color: "red" }}>*</label>
                   <label>Draw Amount (USD)</label>
                   <input
                     type="number"
                     value={fundingData.drawAmount}
-                    onChange={(e) => handleInputChange('drawAmount', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("drawAmount", e.target.value)
+                    }
                     placeholder="5,000,000"
                     min="0"
                     step="1000"
-                    style={{ width: '100%', padding: '8px', border: '1px solid #d9d9d9', borderRadius: '6px' }}
+                    style={{
+                      width: "100%",
+                      padding: "8px",
+                      border: "1px solid #d9d9d9",
+                      borderRadius: "6px",
+                    }}
                   />
-                  {errors.drawAmount && <div style={{ color: 'red', fontSize: '12px' }}>{errors.drawAmount}</div>}
+                  {errors.drawAmount && (
+                    <div style={{ color: "red", fontSize: "12px" }}>
+                      {errors.drawAmount}
+                    </div>
+                  )}
                 </div>
                 <div style={{ flex: 1 }}>
-                  <label style={{ color: 'red' }}>*</label>
+                  <label style={{ color: "red" }}>*</label>
                   <label>Funding Date</label>
                   <input
                     type="date"
                     value={fundingData.fundingDate}
-                    onChange={(e) => handleInputChange('fundingDate', e.target.value)}
-                    min={new Date().toISOString().split('T')[0]}
-                    max={new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]}
+                    onChange={(e) =>
+                      handleInputChange("fundingDate", e.target.value)
+                    }
+                    min={new Date().toISOString().split("T")[0]}
+                    max={
+                      new Date(Date.now() + 5 * 24 * 60 * 60 * 1000)
+                        .toISOString()
+                        .split("T")[0]
+                    }
                     title="T+0 to T+5 business days"
-                    style={{ width: '100%', padding: '8px', border: '1px solid #d9d9d9', borderRadius: '6px' }}
+                    style={{
+                      width: "100%",
+                      padding: "8px",
+                      border: "1px solid #d9d9d9",
+                      borderRadius: "6px",
+                    }}
                   />
-                  {errors.fundingDate && <div style={{ color: 'red', fontSize: '12px' }}>{errors.fundingDate}</div>}
+                  {errors.fundingDate && (
+                    <div style={{ color: "red", fontSize: "12px" }}>
+                      {errors.fundingDate}
+                    </div>
+                  )}
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '16px', marginBottom: '16px' }}>
+              <div
+                style={{ display: "flex", gap: "16px", marginBottom: "16px" }}
+              >
                 <div style={{ flex: 1 }}>
-                  <label style={{ color: 'red' }}>*</label>
+                  <label style={{ color: "red" }}>*</label>
                   <label>Purpose of Funds</label>
                   <select
                     value={fundingData.purposeOfFunds}
-                    onChange={(e) => handleInputChange('purposeOfFunds', e.target.value)}
-                    style={{ width: '100%', padding: '8px', border: '1px solid #d9d9d9', borderRadius: '6px' }}
+                    onChange={(e) =>
+                      handleInputChange("purposeOfFunds", e.target.value)
+                    }
+                    style={{
+                      width: "100%",
+                      padding: "8px",
+                      border: "1px solid #d9d9d9",
+                      borderRadius: "6px",
+                    }}
                   >
                     <option value="">Select Purpose</option>
                     <option value="Working Capital">Working Capital</option>
-                    <option value="Origination Funding">Origination Funding</option>
+                    <option value="Origination Funding">
+                      Origination Funding
+                    </option>
                     <option value="Re-advance">Re-advance</option>
                     <option value="Other">Other</option>
                   </select>
-                  {errors.purposeOfFunds && <div style={{ color: 'red', fontSize: '12px' }}>{errors.purposeOfFunds}</div>}
+                  {errors.purposeOfFunds && (
+                    <div style={{ color: "red", fontSize: "12px" }}>
+                      {errors.purposeOfFunds}
+                    </div>
+                  )}
                 </div>
                 <div style={{ flex: 1 }}>
                   <label>Draw Currency</label>
                   <select
                     value={fundingData.drawCurrency}
-                    onChange={(e) => handleInputChange('drawCurrency', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("drawCurrency", e.target.value)
+                    }
                     disabled
-                    style={{ width: '100%', padding: '8px', border: '1px solid #d9d9d9', borderRadius: '6px', backgroundColor: '#f5f5f5' }}
+                    style={{
+                      width: "100%",
+                      padding: "8px",
+                      border: "1px solid #d9d9d9",
+                      borderRadius: "6px",
+                      backgroundColor: "#f5f5f5",
+                    }}
                   >
                     <option value="USD">USD</option>
                     <option value="USDC">USDC</option>
@@ -841,39 +1102,59 @@ const BorrowerDashboard = () => {
                 </div>
               </div>
 
-              {fundingData.purposeOfFunds === 'Other' && (
-                <div style={{ marginBottom: '16px' }}>
-                  <label style={{ color: 'red' }}>*</label>
+              {fundingData.purposeOfFunds === "Other" && (
+                <div style={{ marginBottom: "16px" }}>
+                  <label style={{ color: "red" }}>*</label>
                   <label>Specify Purpose</label>
                   <textarea
                     value={fundingData.purposeOther}
-                    onChange={(e) => handleInputChange('purposeOther', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("purposeOther", e.target.value)
+                    }
                     placeholder="Please describe the purpose of funds..."
                     rows="3"
                     maxLength="250"
-                    style={{ width: '100%', padding: '8px', border: '1px solid #d9d9d9', borderRadius: '6px' }}
+                    style={{
+                      width: "100%",
+                      padding: "8px",
+                      border: "1px solid #d9d9d9",
+                      borderRadius: "6px",
+                    }}
                   />
-                  {errors.purposeOther && <div style={{ color: 'red', fontSize: '12px' }}>{errors.purposeOther}</div>}
+                  {errors.purposeOther && (
+                    <div style={{ color: "red", fontSize: "12px" }}>
+                      {errors.purposeOther}
+                    </div>
+                  )}
                 </div>
               )}
             </div>
 
             <div className="form-section">
               <h4>Collateral Information</h4>
-              
-              <div style={{ marginBottom: '16px' }}>
+
+              <div style={{ marginBottom: "16px" }}>
                 <label>Collateral Addendum Upload</label>
-                <div style={{ border: '2px dashed #d9d9d9', padding: '20px', textAlign: 'center', borderRadius: '6px' }}>
+                <div
+                  style={{
+                    border: "2px dashed #d9d9d9",
+                    padding: "20px",
+                    textAlign: "center",
+                    borderRadius: "6px",
+                  }}
+                >
                   <input
                     type="file"
                     accept=".csv,.xlsx,.json"
                     onChange={handleFileChange}
-                    style={{ marginBottom: '10px' }}
+                    style={{ marginBottom: "10px" }}
                   />
                   <div>
                     <p>Click to upload or drag and drop</p>
                     <p>CSV, Excel, JSON files</p>
-                    <p><em>Optional: Add loans to secure this draw</em></p>
+                    <p>
+                      <em>Optional: Add loans to secure this draw</em>
+                    </p>
                     {fundingData.collateralFile && (
                       <p>Selected: {fundingData.collateralFile.name}</p>
                     )}
@@ -881,44 +1162,61 @@ const BorrowerDashboard = () => {
                 </div>
               </div>
 
-              <div style={{ marginBottom: '16px' }}>
+              <div style={{ marginBottom: "16px" }}>
                 <label>Estimated Collateral Value</label>
                 <input
                   type="text"
-                  value={fundingData.estimatedCollateralValue || 'Calculating...'}
+                  value={
+                    fundingData.estimatedCollateralValue || "Calculating..."
+                  }
                   readOnly
-                  style={{ width: '100%', padding: '8px', border: '1px solid #d9d9d9', borderRadius: '6px', backgroundColor: '#f5f5f5' }}
+                  style={{
+                    width: "100%",
+                    padding: "8px",
+                    border: "1px solid #d9d9d9",
+                    borderRadius: "6px",
+                    backgroundColor: "#f5f5f5",
+                  }}
                 />
-                <small>Auto-calculated based on uploaded collateral and eligibility rules</small>
+                <small>
+                  Auto-calculated based on uploaded collateral and eligibility
+                  rules
+                </small>
               </div>
             </div>
 
             <div className="form-section">
               <h4>Additional Information</h4>
-              
-              <div style={{ marginBottom: '16px' }}>
+
+              <div style={{ marginBottom: "16px" }}>
                 <label>Notes / Internal Reference</label>
                 <textarea
                   value={fundingData.notes}
-                  onChange={(e) => handleInputChange('notes', e.target.value)}
+                  onChange={(e) => handleInputChange("notes", e.target.value)}
                   placeholder="Any additional information or internal reference..."
                   rows="4"
                   maxLength="500"
-                  style={{ width: '100%', padding: '8px', border: '1px solid #d9d9d9', borderRadius: '6px' }}
+                  style={{
+                    width: "100%",
+                    padding: "8px",
+                    border: "1px solid #d9d9d9",
+                    borderRadius: "6px",
+                  }}
                 />
               </div>
             </div>
 
-            <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end', marginTop: '20px' }}>
-              <Button onClick={handleFundingCancel}>
-                Cancel
-              </Button>
-              <Button 
-                type="submit" 
-                variant="contained"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Submitting...' : 'Submit Funding Request'}
+            <div
+              style={{
+                display: "flex",
+                gap: "8px",
+                justifyContent: "flex-end",
+                marginTop: "20px",
+              }}
+            >
+              <Button onClick={handleFundingCancel}>Cancel</Button>
+              <Button type="submit" variant="contained" disabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Submit Funding Request"}
               </Button>
             </div>
           </form>
