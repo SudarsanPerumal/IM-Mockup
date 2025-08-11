@@ -1,8 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
+/* Custom CSS for Intain Markets UI */
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 7%;
@@ -49,16 +45,17 @@
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+/* Base styles */
+* {
+  border-color: hsl(var(--border));
 }
 
-@layer components {
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+/* Component styles */
   /* IntainMARKETS specific styling */
   .intain-sidebar {
     background-color: var(--sidebar-background);
@@ -413,6 +410,7 @@
   }
 }
 
+/* Additional CSS variables for Intain Markets */
 :root {
   --screen-background: #FFFFFF;
   --black: #121212;
@@ -433,6 +431,7 @@
   --icon-secondary: #8C8C8C;
 }
 
+/* Reset styles */
 * {
   margin: 0;
   padding: 0;
