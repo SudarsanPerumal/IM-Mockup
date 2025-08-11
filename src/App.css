@@ -43,7 +43,6 @@
     --input: 0 0% 15%;
     --ring: 180 100% 13%;
   }
-}
 
 /* Base styles */
 * {
@@ -408,7 +407,7 @@ body {
     color: #9ca3af;
     font-size: 12px;
   }
-}
+
 
 /* Additional CSS variables for Intain Markets */
 :root {
