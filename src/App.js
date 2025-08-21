@@ -14,6 +14,7 @@ import LenderFundingNotice from './pages/LenderFundingNotice';
 import FundingRequestReview from './pages/FundingRequestReview';
 import Login from './pages/Login';
 import IssuerUIMockup from './pages/IssuerUIMockup';
+import InvestorConsole from './pages/InvestorConsole';
 
 function App() {
   const [userRole, setUserRole] = useState('');
@@ -136,6 +137,9 @@ function App() {
 
               {/* Issuer UI Mockup Route */}
               <Route path="/issuer-ui" element={<IssuerUIMockup />} />
+
+              {/* Investor Console Route */}
+              <Route path="/investor-console" element={<InvestorConsole />} />
 
               {/* Catch-all route */}
               <Route path="*" element={<Navigate to="/" replace />} />
