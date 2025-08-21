@@ -42,34 +42,6 @@ import {
   MenuItem,
   Tooltip,
   Fab,
-  Select,
-  FormControl,
-  InputLabel,
-  Checkbox,
-  FormGroup,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Link,
-  Alert,
-  Snackbar,
-  LinearProgress,
-  CircularProgress,
-  AlertTitle,
-  Breadcrumbs,
-  Skeleton,
-  Rating,
-  Slider,
-  ToggleButton,
-  ToggleButtonGroup,
-  Autocomplete,
-  InputAdornment,
-  FormHelperText,
-  Radio,
-  RadioGroup,
-  FormLabel,
-  Stack,
-  AlertTitle as MuiAlertTitle
 } from "@mui/material";
 import {
   Search as SearchIcon,
@@ -98,568 +70,273 @@ import {
   Compare as CompareIcon,
   TableChart as TableChartIcon,
   ViewModule as ViewModuleIcon,
-  Timeline as TimelineIcon,
-  CloudDownload as DownloadIcon,
-  Verified as VerifiedIcon,
-  Token as TokenIcon,
-  Description as DocumentIcon,
-  Link as LinkIcon,
-  Warning as WarningIcon,
-  Info as InfoIcon,
-  AttachMoney as MoneyIcon,
-  AccountBalance as BankIcon,
-  CurrencyExchange as CryptoIcon,
-  Lock as LockIcon,
-  Public as PublicIcon,
-  Folder as FolderIcon,
-  PictureAsPdf as PdfIcon,
-  Image as ImageIcon,
-  VideoFile as VideoIcon,
-  AudioFile as AudioIcon,
-  Archive as ArchiveIcon,
-  Schedule as ScheduleIcon,
-  LocationOn as LocationIcon,
-  Category as CategoryIcon,
-  DateRange as DateRangeIcon,
-  TrendingUp as TrendingUpIcon,
-  Assessment as AssessmentIcon,
-  PieChart as PieChartIcon,
-  BarChart as BarChartIcon,
-  ShowChart as ShowChartIcon,
-  Receipt as ReceiptIcon,
-  Payment as PaymentIcon,
-  CreditCard as CreditCardIcon,
-  Send as SendIcon,
-  GetApp as GetAppIcon,
-  Share as ShareIcon,
-  Bookmark as BookmarkIcon,
-  BookmarkBorder as BookmarkBorderIcon,
-  Star as StarIcon,
-  StarBorder as StarBorderIcon,
-  Flag as FlagIcon,
-  Report as ReportIcon,
-  Block as BlockIcon,
-  Check as CheckIcon,
-  Close as CloseIcon,
-  Edit as EditIcon,
-  Delete as DeleteIcon,
-  Refresh as RefreshIcon,
-  Save as SaveIcon,
-  Print as PrintIcon,
-  Email as EmailIcon,
-  Phone as PhoneIcon,
-  Chat as ChatIcon,
-  Forum as ForumIcon,
-  Comment as CommentIcon,
-  Reply as ReplyIcon,
-  Forward as ForwardIcon,
-  Redo as RedoIcon,
-  Undo as UndoIcon,
-  ZoomIn as ZoomInIcon,
-  ZoomOut as ZoomOutIcon,
-  Fullscreen as FullscreenIcon,
-  FullscreenExit as FullscreenExitIcon,
-  OpenInNew as OpenInNewIcon,
-  Launch as LaunchIcon,
-  ExitToApp as ExitToAppIcon,
-  Login as LoginIcon,
-  Logout as LogoutIcon,
-  Person as PersonIcon,
-  Group as GroupIcon,
-  Domain as DomainIcon,
-  LocationCity as LocationCityIcon,
-  Map as MapIcon,
-  Navigation as NavigationIcon,
-  Directions as DirectionsIcon,
-  DirectionsCar as DirectionsCarIcon,
-  DirectionsWalk as DirectionsWalkIcon,
-  DirectionsBike as DirectionsBikeIcon,
-  DirectionsBus as DirectionsBusIcon,
-  DirectionsSubway as DirectionsSubwayIcon,
-  DirectionsTrain as DirectionsTrainIcon,
-  DirectionsBoat as DirectionsBoatIcon,
-  DirectionsPlane as DirectionsPlaneIcon,
-  Flight as FlightIcon,
-  Hotel as HotelIcon,
-  Restaurant as RestaurantIcon,
-  LocalBar as LocalBarIcon,
-  LocalCafe as LocalCafeIcon,
-  LocalDining as LocalDiningIcon,
-  LocalDrink as LocalDrinkIcon,
-  LocalGasStation as LocalGasStationIcon,
-  LocalGroceryStore as LocalGroceryStoreIcon,
-  LocalHospital as LocalHospitalIcon,
-  LocalHotel as LocalHotelIcon,
-  LocalLaundryService as LocalLaundryServiceIcon,
-  LocalLibrary as LocalLibraryIcon,
-  LocalMall as LocalMallIcon,
-  LocalMovies as LocalMoviesIcon,
-  LocalOffer as LocalOfferIcon,
-  LocalParking as LocalParkingIcon,
-  LocalPharmacy as LocalPharmacyIcon,
-  LocalPhone as LocalPhoneIcon,
-  LocalPizza as LocalPizzaIcon,
-  LocalPlay as LocalPlayIcon,
-  LocalPostOffice as LocalPostOfficeIcon,
-  LocalPrintshop as LocalPrintshopIcon,
-  LocalSee as LocalSeeIcon,
-  LocalShipping as LocalShippingIcon,
-  LocalTaxi as LocalTaxiIcon,
-  LocalTheater as LocalTheaterIcon,
-  LocalWc as LocalWcIcon,
-  MyLocation as MyLocationIcon,
-  NearMe as NearMeIcon,
-  PersonPin as PersonPinIcon,
-  PersonPinCircle as PersonPinCircleIcon,
-  PinDrop as PinDropIcon,
-  Place as PlaceIcon,
-  RateReview as RateReviewIcon,
-  RestaurantMenu as RestaurantMenuIcon,
-  SatelliteAlt as SatelliteAltIcon,
-  StoreMallDirectory as StoreMallDirectoryIcon,
-  Streetview as StreetviewIcon,
-  Subway as SubwayIcon,
-  Terrain as TerrainIcon,
-  Traffic as TrafficIcon,
-  Train as TrainIcon,
-  Tram as TramIcon,
-  TransferWithinAStation as TransferWithinAStationIcon,
-  TripOrigin as TripOriginIcon,
-  KeyboardArrowDown as KeyboardArrowDownIcon,
-  KeyboardArrowUp as KeyboardArrowUpIcon,
-  KeyboardArrowLeft as KeyboardArrowLeftIcon,
-  KeyboardArrowRight as KeyboardArrowRightIcon,
-  FirstPage as FirstPageIcon,
-  LastPage as LastPageIcon,
-  NavigateNext as NavigateNextIcon,
-  NavigateBefore as NavigateBeforeIcon,
-  SkipNext as SkipNextIcon,
-  SkipPrevious as SkipPreviousIcon,
-  FastForward as FastForwardIcon,
-  FastRewind as FastRewindIcon,
-  PlayArrow as PlayArrowIcon,
-  Pause as PauseIcon,
-  Stop as StopIcon,
-  VolumeUp as VolumeUpIcon,
-  VolumeDown as VolumeDownIcon,
-  VolumeOff as VolumeOffIcon,
-  VolumeMute as VolumeMuteIcon,
-  Brightness4 as Brightness4Icon,
-  Brightness7 as Brightness7Icon,
-  BrightnessAuto as BrightnessAutoIcon,
-  Contrast as ContrastIcon,
-  Opacity as OpacityIcon,
-  BlurOn as BlurOnIcon,
-  BlurOff as BlurOffIcon,
-  CenterFocusStrong as CenterFocusStrongIcon,
-  CenterFocusWeak as CenterFocusWeakIcon,
-  Crop as CropIcon,
-  CropFree as CropFreeIcon,
-  CropLandscape as CropLandscapeIcon,
-  CropPortrait as CropPortraitIcon,
-  CropSquare as CropSquareIcon,
-  Filter1 as Filter1Icon,
-  Filter2 as Filter2Icon,
-  Filter3 as Filter3Icon,
-  Filter4 as Filter4Icon,
-  Filter5 as Filter5Icon,
-  Filter6 as Filter6Icon,
-  Filter7 as Filter7Icon,
-  Filter8 as Filter8Icon,
-  Filter9 as Filter9Icon,
-  Filter9Plus as Filter9PlusIcon,
-  FilterBAndW as FilterBAndWIcon,
-  FilterCenterFocus as FilterCenterFocusIcon,
-  FilterDrama as FilterDramaIcon,
-  FilterFrames as FilterFramesIcon,
-  FilterHdr as FilterHdrIcon,
-  FilterNone as FilterNoneIcon,
-  FilterTiltShift as FilterTiltShiftIcon,
-  FilterVintage as FilterVintageIcon,
-  Grain as GrainIcon,
-  GridOff as GridOffIcon,
-  GridOn as GridOnIcon,
-  HdrOff as HdrOffIcon,
-  HdrOn as HdrOnIcon,
-  HdrStrong as HdrStrongIcon,
-  HdrWeak as HdrWeakIcon,
-  Healing as HealingIcon,
-  ImageAspectRatio as ImageAspectRatioIcon,
-  Iso as IsoIcon,
-  Landscape as LandscapeIcon,
-  LeakAdd as LeakAddIcon,
-  LeakRemove as LeakRemoveIcon,
-  Lens as LensIcon,
-  LinkedCamera as LinkedCameraIcon,
-  Looks as LooksIcon,
-  Looks3 as Looks3Icon,
-  Looks4 as Looks4Icon,
-  Looks5 as Looks5Icon,
-  Looks6 as Looks6Icon,
-  LooksOne as LooksOneIcon,
-  LooksTwo as LooksTwoIcon,
-  Loupe as LoupeIcon,
-  MonochromePhotos as MonochromePhotosIcon,
-  MovieCreation as MovieCreationIcon,
-  MovieFilter as MovieFilterIcon,
-  MusicNote as MusicNoteIcon,
-  Nature as NatureIcon,
-  NaturePeople as NaturePeopleIcon,
-  Palette as PaletteIcon,
-  Panorama as PanoramaIcon,
-  PanoramaFishEye as PanoramaFishEyeIcon,
-  PanoramaHorizontal as PanoramaHorizontalIcon,
-  PanoramaVertical as PanoramaVerticalIcon,
-  PanoramaWideAngle as PanoramaWideAngleIcon,
-  Photo as PhotoIcon,
-  PhotoAlbum as PhotoAlbumIcon,
-  PhotoCamera as PhotoCameraIcon,
-  PhotoFilter as PhotoFilterIcon,
-  PhotoLibrary as PhotoLibraryIcon,
-  PhotoSizeSelectActual as PhotoSizeSelectActualIcon,
-  PhotoSizeSelectLarge as PhotoSizeSelectLargeIcon,
-  PhotoSizeSelectSmall as PhotoSizeSelectSmallIcon,
-  Portrait as PortraitIcon,
-  RemoveRedEye as RemoveRedEyeIcon,
-  Rotate90DegreesCcw as Rotate90DegreesCcwIcon,
-  RotateLeft as RotateLeftIcon,
-  RotateRight as RotateRightIcon,
-  ShutterSpeed as ShutterSpeedIcon,
-  Slideshow as SlideshowIcon,
-  Straighten as StraightenIcon,
-  Style as StyleIcon,
-  SwitchCamera as SwitchCameraIcon,
-  SwitchVideo as SwitchVideoIcon,
-  TagFaces as TagFacesIcon,
-  Texture as TextureIcon,
-  Timelapse as TimelapseIcon,
-  Timer as TimerIcon,
-  Timer10 as Timer10Icon,
-  Timer3 as Timer3Icon,
-  TimerOff as TimerOffIcon,
-  Tonality as TonalityIcon,
-  Transform as TransformIcon,
-  Tune as TuneIcon,
-  ViewComfy as ViewComfyIcon,
-  ViewCompact as ViewCompactIcon,
-  Vignette as VignetteIcon,
-  WbAuto as WbAutoIcon,
-  WbCloudy as WbCloudyIcon,
-  WbIncandescent as WbIncandescentIcon,
-  WbIridescent as WbIridescentIcon,
-  WbSunny as WbSunnyIcon,
-  ThreeSixty as ThreeSixtyIcon,
-  TwoWheeler as TwoWheelerIcon,
-  Umbrella as UmbrellaIcon,
-  VisibilityOff as VisibilityOffIcon,
-  VoiceChat as VoiceChatIcon,
-  Voicemail as VoicemailIcon,
-  VpnKey as VpnKeyIcon,
-  VpnLock as VpnLockIcon,
-  Wallpaper as WallpaperIcon,
-  Watch as WatchIcon,
-  WatchLater as WatchLaterIcon,
-  Wc as WcIcon,
-  Web as WebIcon,
-  WebAsset as WebAssetIcon,
-  Weekend as WeekendIcon,
-  Whatshot as WhatshotIcon,
-  Widgets as WidgetsIcon,
-  Wifi as WifiIcon,
-  WifiLock as WifiLockIcon,
-  WifiOff as WifiOffIcon,
-  WifiTethering as WifiTetheringIcon,
-  Work as WorkIcon,
-  WorkOff as WorkOffIcon,
-  WorkOutline as WorkOutlineIcon,
-  WrapText as WrapTextIcon,
-  YoutubeSearchedFor as YoutubeSearchedForIcon
 } from "@mui/icons-material";
 
+// Add CSS animations
+const styles = `
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% { 
+      opacity: 1; 
+    }
+    50% { 
+      opacity: 0.7; 
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  .animate-slide-left {
+    animation: slideInFromLeft 0.8s ease-out;
+  }
+
+  .animate-slide-right {
+    animation: slideInFromRight 0.8s ease-out 0.2s both;
+  }
+
+  .animate-pulse {
+    animation: pulse 2s infinite;
+  }
+
+  /* Custom scrollbar for main content */
+  .main-content-area::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .main-content-area::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }
+
+  .main-content-area::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+
+  .main-content-area::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  /* Enhanced hover effects */
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Gradient text effect */
+  .gradient-text {
+    background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow effect for active elements */
+  .glow-effect {
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .glow-effect:hover {
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  }
+`;
+
+// Inject styles
+if (typeof document !== "undefined") {
+  const styleSheet = document.createElement("style");
+  styleSheet.type = "text/css";
+  styleSheet.innerText = styles;
+  document.head.appendChild(styleSheet);
+}
+
 // ---------------------------------------------
-// Enhanced Mock Data with Complete BRD Requirements
+// Mock data
 // ---------------------------------------------
 const mockOpportunities = [
-  { 
-    id: "TRN-1A", 
-    type: "ABS", 
-    issuer: "ABC Trust 2025-1", 
-    stage: "Open", 
-    ccy: "USD", 
-    size: 50, 
-    priceYield: "5.8%", 
-    wal: "3.2y", 
-    last: "1d", 
-    badges: ["Trustee", "Servicer"], 
-    factor: 0.92, 
+  {
+    id: "TRN-1A",
+    type: "ABS",
+    issuer: "ABC Trust 2025-1",
+    stage: "Open",
+    ccy: "USD",
+    size: 50,
+    priceYield: "5.8%",
+    wal: "3.2y",
+    last: "1d",
+    badges: ["Trustee", "Servicer"],
+    factor: 0.92,
     triggers: { oc: "104%", ic: "120%" },
-    // BRD Asset Type & Verification Level
+    // Add these new fields:
     assetType: "SC_DAI",
-    verificationLevel: "ThirdPartyCertified", 
+    verificationLevel: "ThirdPartyCertified",
     docCount: 15,
     hasNft: true,
     nftRef: {
       chain: "ethereum",
-      contract: "0x1234567890abcdef",
+      contract: "0x1234...",
       tokenId: "123",
-      tokenUri: "ipfs://QmHash123",
-      cid: "QmHash123"
+      tokenUri: "ipfs://...",
     },
-    docRefs: [
-      { id: "doc1", checksum: "sha256:abc123", uri: "https://docs.example.com/doc1", signer: "0xabc123", asOf: "2024-01-15" },
-      { id: "doc2", checksum: "sha256:def456", uri: "https://docs.example.com/doc2", signer: "0xdef456", asOf: "2024-01-16" }
-    ],
     provenance: {
       source: "VA",
-      asOf: "2024-01-15T10:30:00Z",
-      signer: "0xabc123def456",
-      hash: "0xdef789ghi012",
-      txid: "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+      asOf: "2024-01-15",
+      signer: "0xabc...",
+      hash: "0xdef...",
     },
-    access: "Data-room",
-    rating: "AAA",
-    geography: "US",
-    assetClass: "Residential Mortgage",
-    originationWindow: "2023-01 to 2023-12",
-    seasoning: "12-24 months",
-    collateralFacets: ["Prime", "Conforming", "Fixed Rate"],
-    tranche: "A-1",
-    coupon: "5.8%",
-    priority: "Senior",
-    nextPayDate: "2024-02-15"
   },
-  { 
-    id: "FAC-12", 
-    type: "CF", 
-    issuer: "LenderCo Facility 12", 
-    stage: "Preview", 
-    ccy: "USD", 
-    size: 200, 
-    priceYield: "SOFR+400", 
-    wal: "–", 
-    last: "2h", 
-    badges: ["VA"], 
+  {
+    id: "FAC-12",
+    type: "CF",
+    issuer: "LenderCo Facility 12",
+    stage: "Preview",
+    ccy: "USD",
+    size: 200,
+    priceYield: "SOFR+400",
+    wal: "–",
+    last: "2h",
+    badges: ["VA"],
     headroom: "$42m",
-    advanceRate: 65,
-    margin: 400,
-    tenor: "24m",
-    borrowingBaseMethod: "Eligible Receivables",
-    assetType: "SC",
-    verificationLevel: "SelfCertified",
-    docCount: 8,
-    hasNft: false,
-    provenance: {
-      source: "Servicer",
-      asOf: "2024-01-15T14:20:00Z",
-      signer: "0xdef456ghi789",
-      hash: "0xghi012jkl345",
-      txid: null
-    },
-    access: "NDA",
-    geography: "US",
-    assetClass: "Commercial Lending",
-    originationWindow: "2023-06 to 2024-01",
-    seasoning: "0-6 months",
-    collateralFacets: ["CRE", "Multifamily"]
   },
-  { 
-    id: "POOL-7", 
-    type: "WLS", 
-    issuer: "ServicerX Pool 7", 
-    stage: "Open", 
-    ccy: "USD", 
-    size: 75, 
-    priceYield: "97.50", 
-    wal: "–", 
-    last: "3d", 
-    badges: ["VA"], 
-    loans: 1234, 
-    wafico: 720, 
+  {
+    id: "POOL-7",
+    type: "WLS",
+    issuer: "ServicerX Pool 7",
+    stage: "Open",
+    ccy: "USD",
+    size: 75,
+    priceYield: "97.50",
+    wal: "–",
+    last: "3d",
+    badges: ["VA"],
+    loans: 1234,
+    wafico: 720,
     ltv: 72,
-    assetType: "ThirdPartyCertified",
-    verificationLevel: "ThirdPartyCertified",
-    docCount: 25,
-    hasNft: true,
-    nftRef: {
-      chain: "polygon",
-      contract: "0xabcdef1234567890",
-      tokenId: "456",
-      tokenUri: "ipfs://QmHash456",
-      cid: "QmHash456"
-    },
-    provenance: {
-      source: "VA",
-      asOf: "2024-01-12T09:15:00Z",
-      signer: "0xghi789jkl012",
-      hash: "0xjkl345mno678",
-      txid: "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890"
-    },
-    access: "Public",
-    geography: "US",
-    assetClass: "Residential Mortgage",
-    originationWindow: "2022-01 to 2023-06",
-    seasoning: "6-18 months",
-    collateralFacets: ["Non-QM", "DSCR", "Investment Property"],
-    waRate: "6.8%",
-    waRemainingTerm: "28.5y"
   },
-  { 
-    id: "L-998", 
-    type: "PA", 
-    issuer: "ServicerY Loan 998 Participation", 
-    stage: "Open", 
-    ccy: "USD", 
-    size: 10, 
-    priceYield: "8.2%", 
-    wal: "4.1y", 
-    last: "5d", 
-    badges: ["Servicer"], 
+  {
+    id: "L-998",
+    type: "PA",
+    issuer: "ServicerY Loan 998 Participation",
+    stage: "Open",
+    ccy: "USD",
+    size: 10,
+    priceYield: "8.2%",
+    wal: "4.1y",
+    last: "5d",
+    badges: ["Servicer"],
     availPct: 35,
-    underlyingLoanId: "LOAN-998",
-    servicer: "ServicerY",
-    cashFlowPriority: "Senior",
-    assetType: "SC_DAI",
-    verificationLevel: "ThirdPartyCertified",
-    docCount: 12,
-    hasNft: true,
-    nftRef: {
-      chain: "ethereum",
-      contract: "0x7890abcdef123456",
-      tokenId: "789",
-      tokenUri: "ipfs://QmHash789",
-      cid: "QmHash789"
-    },
-    provenance: {
-      source: "Trustee",
-      asOf: "2024-01-10T16:45:00Z",
-      signer: "0xjkl012mno345",
-      hash: "0xmno678pqr901",
-      txid: "0x7890abcdef1234567890abcdef1234567890abcdef1234567890abcdef123456"
-    },
-    access: "NDA",
-    geography: "US",
-    assetClass: "Commercial Real Estate",
-    originationWindow: "2022-06 to 2023-01",
-    seasoning: "12-18 months",
-    collateralFacets: ["Office", "Retail", "Senior Secured"]
-  }
+  },
 ];
 
 const kpis = [
-  { label: "Cash Available", value: "$18.3m", trend: "+2.1%", color: "success" },
-  { label: "Pending Settlements", value: "$2.1m", trend: "-0.3%", color: "warning" },
-  { label: "Total Exposure", value: "$611.4m", trend: "+1.8%", color: "info" },
-  { label: "P&L / YTM", value: "+1.8% / 6.2%", trend: "+0.2%", color: "success" },
-  { label: "Headroom (CF)", value: "$58.7m", trend: "+5.2%", color: "success" },
-  { label: "Loans (WLS)", value: "2,431", trend: "+12", color: "info" },
-  { label: "Participations (PA)", value: "17", trend: "+2", color: "info" },
+  { label: "Cash Available", value: "$18.3m" },
+  { label: "Pending Settlements", value: "$2.1m" },
+  { label: "Total Exposure", value: "$611.4m" },
+  { label: "P&L / YTM", value: "+1.8% / 6.2%" },
+  { label: "Headroom (CF)", value: "$58.7m" },
+  { label: "Loans (WLS)", value: "2,431" },
+  { label: "Participations (PA)", value: "17" },
 ];
 
-// Portfolio data
-const portfolioData = {
-  cf: {
-    commitments: "$312m",
-    utilized: "$253.3m",
-    headroom: "$58.7m",
-    ineligibles: "2.3%",
-    nextFundingNotice: "2024-02-01",
-    covenantStatus: "Compliant",
-    facilities: [
-      { id: "FAC-12", name: "LenderCo Facility 12", commitment: "$200m", utilized: "$158m", headroom: "$42m", status: "Active" },
-      { id: "FAC-13", name: "LenderCo Facility 13", commitment: "$112m", utilized: "$95.3m", headroom: "$16.7m", status: "Active" }
-    ]
-  },
-  abs: {
-    marketValue: "$205m",
-    nextPayDate: "2024-02-15",
-    lastFactor: "0.92",
-    triggerStatus: "All Clear",
-    lastDistribution: "2024-01-15",
-    holdings: [
-      { id: "TRN-1A", name: "ABC Trust 2025-1", par: "$50m", marketValue: "$48.5m", factor: "0.92", nextPay: "2024-02-15" },
-      { id: "TRN-2B", name: "XYZ Trust 2024-2", par: "$155m", marketValue: "$156.5m", factor: "0.95", nextPay: "2024-02-15" }
-    ]
-  },
-  wls: {
-    loanCount: 2431,
-    upb: "$86m",
-    waRate: "6.8%",
-    waFico: 735,
-    waLtv: 68,
-    delinquency: "1.2%",
-    exceptions: 3,
-    loans: [
-      { id: "LOAN-001", rate: "6.5%", term: "360", fico: 750, ltv: 65, balance: "$450k", status: "Current", exceptions: [], assetType: "SC_DAI", verificationLevel: "ThirdPartyCertified", docCount: 5, hasNft: true },
-      { id: "LOAN-002", rate: "7.2%", term: "360", fico: 720, ltv: 70, balance: "$380k", status: "Current", exceptions: [], assetType: "SC", verificationLevel: "SelfCertified", docCount: 3, hasNft: false }
-    ]
-  },
-  pa: {
-    participationCount: 17,
-    upbRepresented: "$8m",
-    cashVsEntitlement: "98.5%",
-    variances: "$120k",
-    nextRemittance: "2024-02-01",
-    participations: [
-      { id: "L-998", underlyingLoanId: "LOAN-998", upb: "$10m", participation: "$8m", servicer: "ServicerY", priority: "Senior" }
-    ]
-  }
-};
-
 // ---------------------------------------------
-// Enhanced Helper Components
+// Helper components
 // ---------------------------------------------
 function TopBar({ onToggleRight }) {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [orgAnchorEl, setOrgAnchorEl] = useState(null);
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleOrgMenu = (event) => {
-    setOrgAnchorEl(event.currentTarget);
-  };
-
   const handleClose = () => {
     setAnchorEl(null);
-    setOrgAnchorEl(null);
   };
 
   return (
-    <AppBar position="static" color="default" elevation={1}>
+    <AppBar
+      position="static"
+      color="default"
+      elevation={1}
+      sx={{
+        background: "rgba(255, 255, 255, 0.95)",
+        backdropFilter: "blur(20px)",
+      }}
+    >
       <Toolbar>
         <IconButton edge="start" color="inherit" aria-label="back">
           <ChevronLeft />
         </IconButton>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1, ml: 2 }}>
+        <Typography
+          variant="h6"
+          component="div"
+          sx={{
+            flexGrow: 1,
+            ml: 2,
+            fontWeight: 700,
+            background: "linear-gradient(135deg, #1e293b 0%, #475569 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
           IntainMARKETS — Investor Console
         </Typography>
-        
-        <Button
-          onClick={handleOrgMenu}
-          endIcon={<KeyboardArrowDownIcon />}
-          sx={{ mr: 2, textTransform: 'none' }}
+        <Chip label="Org: Demo Fund LP" size="small" sx={{ mr: 2 }} />
+
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 1,
+            flexGrow: 1,
+            maxWidth: 600,
+            mx: 2,
+          }}
         >
-          <Chip label="Org: Demo Fund LP" size="small" />
-        </Button>
-        
-        <Menu
-          anchorEl={orgAnchorEl}
-          open={Boolean(orgAnchorEl)}
-          onClose={handleClose}
-        >
-          <MenuItem onClick={handleClose}>Demo Fund LP</MenuItem>
-          <MenuItem onClick={handleClose}>Demo Fund II</MenuItem>
-          <MenuItem onClick={handleClose}>Demo Fund III</MenuItem>
-        </Menu>
-        
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexGrow: 1, maxWidth: 600, mx: 2 }}>
           <TextField
             placeholder="Global search… deals, loans, tranches"
             size="small"
             fullWidth
             InputProps={{
-              startAdornment: <SearchIcon sx={{ mr: 1, color: 'text.secondary' }} />,
+              startAdornment: (
+                <SearchIcon sx={{ mr: 1, color: "text.secondary" }} />
+              ),
             }}
           />
         </Box>
@@ -673,10 +350,7 @@ function TopBar({ onToggleRight }) {
         </Tooltip>
 
         <Tooltip title="User menu">
-          <IconButton
-            color="inherit"
-            onClick={handleMenu}
-          >
+          <IconButton color="inherit" onClick={handleMenu}>
             <AccountCircleIcon />
           </IconButton>
         </Tooltip>
@@ -686,22 +360,27 @@ function TopBar({ onToggleRight }) {
           open={Boolean(anchorEl)}
           onClose={handleClose}
           anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'right',
+            vertical: "bottom",
+            horizontal: "right",
           }}
           transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
+            vertical: "top",
+            horizontal: "right",
           }}
         >
           <MenuItem onClick={handleClose}>Profile & Settings</MenuItem>
-          <MenuItem onClick={handleClose}>Preferences</MenuItem>
-          <MenuItem onClick={handleClose}>API Keys</MenuItem>
           <Divider />
-          <MenuItem onClick={handleClose} sx={{ color: 'error.main' }}>Sign out</MenuItem>
+          <MenuItem onClick={handleClose} sx={{ color: "error.main" }}>
+            Sign out
+          </MenuItem>
         </Menu>
 
-        <Button variant="outlined" size="small" onClick={onToggleRight} sx={{ ml: 1 }}>
+        <Button
+          variant="outlined"
+          size="small"
+          onClick={onToggleRight}
+          sx={{ ml: 1 }}
+        >
           Right Drawer
         </Button>
       </Toolbar>
@@ -709,7 +388,7 @@ function TopBar({ onToggleRight }) {
   );
 }
 
-function SideNav({ current, onNavigate }) {
+function SideNav({ current, onNavigate, collapsed, setCollapsed }) {
   const [portfolioOpen, setPortfolioOpen] = useState(true);
 
   const menuItems = [
@@ -732,39 +411,265 @@ function SideNav({ current, onNavigate }) {
     <Drawer
       variant="permanent"
       sx={{
-        width: 280,
+        width: collapsed ? 72 : 280,
         flexShrink: 0,
-        '& .MuiDrawer-paper': {
-          width: 280,
-          boxSizing: 'border-box',
-          borderRight: '1px solid rgba(0, 0, 0, 0.12)',
+        transition: "width 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        "& .MuiDrawer-paper": {
+          width: collapsed ? 72 : 280,
+          boxSizing: "border-box",
+          borderRight: "1px solid rgba(0, 0, 0, 0.12)",
+          background:
+            "linear-gradient(180deg, #1e293b 0%, #334155 50%, #475569 100%)",
+          transition: "width 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+          boxShadow: "4px 0 20px rgba(0, 0, 0, 0.2)",
+          borderRight: "1px solid rgba(255, 255, 255, 0.1)",
+          zIndex: 100,
+          overflow: "hidden",
         },
       }}
     >
-      <Toolbar />
-      <Box sx={{ overflow: 'auto', p: 2 }}>
-        <Typography variant="overline" color="text.secondary" sx={{ mb: 1 }}>
-          Navigation
-        </Typography>
-        
-        <List>
+      {/* Sidebar Header */}
+      <Box
+        sx={{
+          height: 70,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          px: 2,
+          background:
+            "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)",
+          borderBottom: "1px solid rgba(255, 255, 255, 0.15)",
+          backdropFilter: "blur(10px)",
+        }}
+      >
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+          <Box
+            sx={{
+              height: 40,
+              width: 40,
+              borderRadius: 2,
+              background: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: "0 4px 15px rgba(59, 130, 246, 0.3)",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+              transition: "all 0.3s ease",
+            }}
+          >
+            <SparklesIcon sx={{ color: "white", fontSize: 20 }} />
+          </Box>
+          {!collapsed && (
+            <Box sx={{ color: "white" }}>
+              <Typography
+                sx={{
+                  fontSize: 16,
+                  fontWeight: 700,
+                  lineHeight: 1.2,
+                  letterSpacing: "-0.025em",
+                  textShadow: "0 1px 2px rgba(0, 0, 0, 0.2)",
+                  background:
+                    "linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                IntainMARKETS
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: 12,
+                  color: "rgba(255, 255, 255, 0.8)",
+                  fontWeight: 500,
+                  mt: 0.25,
+                }}
+              >
+                Investor
+              </Typography>
+            </Box>
+          )}
+        </Box>
+        <IconButton
+          onClick={() => setCollapsed(!collapsed)}
+          sx={{
+            background: "rgba(255, 255, 255, 0.1)",
+            border: "1px solid rgba(255, 255, 255, 0.2)",
+            color: "white",
+            p: 1.25,
+            borderRadius: 2.5,
+            transition: "all 0.3s ease",
+            backdropFilter: "blur(10px)",
+            "&:hover": {
+              background: "rgba(255, 255, 255, 0.2)",
+              transform: "translateY(-2px)",
+              boxShadow: "0 6px 20px rgba(0, 0, 0, 0.2)",
+            },
+          }}
+        >
+          {collapsed ? <ChevronRight /> : <ChevronLeft />}
+        </IconButton>
+      </Box>
+
+      <Box
+        sx={{
+          overflow: "auto",
+          p: collapsed ? 1.5 : 2.5,
+          height: "calc(100vh - 70px)",
+          scrollbarWidth: "thin",
+          scrollbarColor: "rgba(255, 255, 255, 0.3) transparent",
+          "&::-webkit-scrollbar": { width: 4 },
+          "&::-webkit-scrollbar-track": { background: "transparent" },
+          "&::-webkit-scrollbar-thumb": {
+            background: "rgba(255, 255, 255, 0.3)",
+            borderRadius: 2,
+          },
+        }}
+      >
+        {!collapsed && (
+          <Typography
+            variant="overline"
+            sx={{
+              color: "rgba(255, 255, 255, 0.6)",
+              mb: 1,
+              fontSize: 11,
+              textTransform: "uppercase",
+              letterSpacing: "0.15em",
+              fontWeight: 700,
+              position: "relative",
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                bottom: -4,
+                left: 0,
+                right: 0,
+                height: 1,
+                background:
+                  "linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%)",
+              },
+            }}
+          >
+            Navigation
+          </Typography>
+        )}
+
+        <List sx={{ mb: 3.5 }}>
           {menuItems.map((item) => (
-            <ListItem key={item.key} disablePadding>
+            <ListItem key={item.key} disablePadding sx={{ mb: 0.75 }}>
               <ListItemButton
                 selected={current === item.key}
                 onClick={() => onNavigate(item.key)}
+                sx={{
+                  borderRadius: 3,
+                  fontSize: 14,
+                  fontWeight: 500,
+                  transition: "all 0.3s ease",
+                  cursor: "pointer",
+                  border: "none",
+                  background: "transparent",
+                  color: "rgba(255, 255, 255, 0.8)",
+                  position: "relative",
+                  overflow: "hidden",
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background:
+                      "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)",
+                    opacity: 0,
+                    transition: "opacity 0.3s ease",
+                    borderRadius: 3,
+                  },
+                  "&:hover::before": { opacity: 1 },
+                  "&:hover": {
+                    color: "white",
+                    transform: "translateX(4px)",
+                  },
+                  "&.Mui-selected": {
+                    background:
+                      "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
+                    color: "white",
+                    boxShadow: "0 6px 20px rgba(59, 130, 246, 0.3)",
+                    border: "1px solid rgba(255, 255, 255, 0.2)",
+                    "&::before": { opacity: 0 },
+                  },
+                  "&.Mui-selected:hover": {
+                    transform: "translateX(4px)",
+                    boxShadow: "0 8px 25px rgba(59, 130, 246, 0.4)",
+                  },
+                }}
               >
-                <ListItemIcon>{item.icon}</ListItemIcon>
-                <ListItemText primary={item.label} />
+                <ListItemIcon
+                  sx={{
+                    color: "inherit",
+                    minWidth: collapsed ? "auto" : 40,
+                    mr: collapsed ? 0 : 1.5,
+                    "& .MuiSvgIcon-root": {
+                      fontSize: 20,
+                      filter: "drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))",
+                      transition: "all 0.3s ease",
+                    },
+                  }}
+                >
+                  {item.icon}
+                </ListItemIcon>
+                {!collapsed && <ListItemText primary={item.label} />}
               </ListItemButton>
             </ListItem>
           ))}
 
-          <ListItem disablePadding>
-            <ListItemButton onClick={() => setPortfolioOpen(!portfolioOpen)}>
-              <ListItemIcon><WalletIcon /></ListItemIcon>
-              <ListItemText primary="Portfolio" />
-              {portfolioOpen ? <ExpandLess /> : <ExpandMore />}
+          <ListItem disablePadding sx={{ mb: 0.75 }}>
+            <ListItemButton
+              onClick={() => setPortfolioOpen(!portfolioOpen)}
+              sx={{
+                borderRadius: 3,
+                fontSize: 14,
+                fontWeight: 500,
+                transition: "all 0.3s ease",
+                cursor: "pointer",
+                border: "none",
+                background: "transparent",
+                color: "rgba(255, 255, 255, 0.8)",
+                position: "relative",
+                overflow: "hidden",
+                "&::before": {
+                  content: '""',
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  background:
+                    "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)",
+                  opacity: 0,
+                  transition: "opacity 0.3s ease",
+                  borderRadius: 3,
+                },
+                "&:hover::before": { opacity: 1 },
+                "&:hover": {
+                  color: "white",
+                  transform: "translateX(4px)",
+                },
+              }}
+            >
+              <ListItemIcon
+                sx={{
+                  color: "inherit",
+                  minWidth: collapsed ? "auto" : 40,
+                  mr: collapsed ? 0 : 1.5,
+                  "& .MuiSvgIcon-root": {
+                    fontSize: 20,
+                    filter: "drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))",
+                    transition: "all 0.3s ease",
+                  },
+                }}
+              >
+                <WalletIcon />
+              </ListItemIcon>
+              {!collapsed && <ListItemText primary="Portfolio" />}
+              {!collapsed && (portfolioOpen ? <ExpandLess /> : <ExpandMore />)}
             </ListItemButton>
           </ListItem>
 
@@ -773,65 +678,166 @@ function SideNav({ current, onNavigate }) {
               {portfolioItems.map((item) => (
                 <ListItemButton
                   key={item.key}
-                  sx={{ pl: 4 }}
+                  sx={{
+                    pl: collapsed ? 1 : 4,
+                    borderRadius: 3,
+                    fontSize: 14,
+                    fontWeight: 500,
+                    transition: "all 0.3s ease",
+                    cursor: "pointer",
+                    border: "none",
+                    background: "transparent",
+                    color: "rgba(255, 255, 255, 0.8)",
+                    position: "relative",
+                    overflow: "hidden",
+                    "&::before": {
+                      content: '""',
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background:
+                        "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      borderRadius: 3,
+                    },
+                    "&:hover::before": { opacity: 1 },
+                    "&:hover": {
+                      color: "white",
+                      transform: "translateX(4px)",
+                    },
+                    "&.Mui-selected": {
+                      background:
+                        "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
+                      color: "white",
+                      boxShadow: "0 6px 20px rgba(59, 130, 246, 0.3)",
+                      border: "1px solid rgba(255, 255, 255, 0.2)",
+                      "&::before": { opacity: 0 },
+                    },
+                    "&.Mui-selected:hover": {
+                      transform: "translateX(4px)",
+                      boxShadow: "0 8px 25px rgba(59, 130, 246, 0.4)",
+                    },
+                  }}
                   selected={current === item.key}
                   onClick={() => onNavigate(item.key)}
                 >
-                  <ListItemText primary={item.label} />
+                  {!collapsed && <ListItemText primary={item.label} />}
                 </ListItemButton>
               ))}
             </List>
           </Collapse>
         </List>
 
-        <Divider sx={{ my: 2 }} />
-        
-        <Typography variant="overline" color="text.secondary" sx={{ mb: 1 }}>
-          Shortcuts
-        </Typography>
-        
-        <Grid container spacing={1}>
-          <Grid item xs={6}>
-            <Button
-              variant="outlined"
-              size="small"
-              startIcon={<FilterIcon />}
-              fullWidth
+        {!collapsed && (
+          <>
+            <Divider
+              sx={{ my: 2.5, borderColor: "rgba(255, 255, 255, 0.2)" }}
+            />
+
+            <Typography
+              variant="overline"
+              sx={{
+                color: "rgba(255, 255, 255, 0.6)",
+                mb: 1,
+                fontSize: 11,
+                textTransform: "uppercase",
+                letterSpacing: "0.15em",
+                fontWeight: 700,
+                position: "relative",
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  bottom: -4,
+                  left: 0,
+                  right: 0,
+                  height: 1,
+                  background:
+                    "linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%)",
+                },
+              }}
             >
-              Filters
-            </Button>
-          </Grid>
-          <Grid item xs={6}>
-            <Button
-              variant="outlined"
-              size="small"
-              startIcon={<DatabaseIcon />}
-              fullWidth
-            >
-              Data Room
-            </Button>
-          </Grid>
-          <Grid item xs={6}>
-            <Button
-              variant="outlined"
-              size="small"
-              startIcon={<SecurityIcon />}
-              fullWidth
-            >
-              Provenance
-            </Button>
-          </Grid>
-          <Grid item xs={6}>
-            <Button
-              variant="outlined"
-              size="small"
-              startIcon={<BusinessIcon />}
-              fullWidth
-            >
-              Issuers
-            </Button>
-          </Grid>
-        </Grid>
+              Shortcuts
+            </Typography>
+
+            <Grid container spacing={1}>
+              <Grid item xs={6}>
+                <Button
+                  variant="outlined"
+                  size="small"
+                  startIcon={<FilterIcon />}
+                  fullWidth
+                  sx={{
+                    borderColor: "rgba(255, 255, 255, 0.3)",
+                    color: "rgba(255, 255, 255, 0.8)",
+                    "&:hover": {
+                      borderColor: "rgba(255, 255, 255, 0.5)",
+                      backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    },
+                  }}
+                >
+                  Filters
+                </Button>
+              </Grid>
+              <Grid item xs={6}>
+                <Button
+                  variant="outlined"
+                  size="small"
+                  startIcon={<DatabaseIcon />}
+                  fullWidth
+                  sx={{
+                    borderColor: "rgba(255, 255, 255, 0.3)",
+                    color: "rgba(255, 255, 255, 0.8)",
+                    "&:hover": {
+                      borderColor: "rgba(255, 255, 255, 0.5)",
+                      backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    },
+                  }}
+                >
+                  Data Room
+                </Button>
+              </Grid>
+              <Grid item xs={6}>
+                <Button
+                  variant="outlined"
+                  size="small"
+                  startIcon={<SecurityIcon />}
+                  fullWidth
+                  sx={{
+                    borderColor: "rgba(255, 255, 255, 0.3)",
+                    color: "rgba(255, 255, 255, 0.8)",
+                    "&:hover": {
+                      borderColor: "rgba(255, 255, 255, 0.5)",
+                      backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    },
+                  }}
+                >
+                  Provenance
+                </Button>
+              </Grid>
+              <Grid item xs={6}>
+                <Button
+                  variant="outlined"
+                  size="small"
+                  startIcon={<BusinessIcon />}
+                  fullWidth
+                  sx={{
+                    borderColor: "rgba(255, 255, 255, 0.3)",
+                    color: "rgba(255, 255, 255, 0.8)",
+                    "&:hover": {
+                      borderColor: "rgba(255, 255, 255, 0.5)",
+                      backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    },
+                  }}
+                >
+                  Issuers
+                </Button>
+              </Grid>
+            </Grid>
+          </>
+        )}
       </Box>
     </Drawer>
   );
@@ -844,14 +850,21 @@ function RightDrawer({ open, onClose }) {
       open={open}
       onClose={onClose}
       sx={{
-        '& .MuiDrawer-paper': {
+        "& .MuiDrawer-paper": {
           width: 420,
-          boxSizing: 'border-box',
+          boxSizing: "border-box",
         },
       }}
     >
       <Box sx={{ p: 2 }}>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            mb: 2,
+          }}
+        >
           <Typography variant="h6">Context Panel</Typography>
           <IconButton onClick={onClose}>
             <CancelIcon />
@@ -874,12 +887,6 @@ function RightDrawer({ open, onClose }) {
                 </ListItemIcon>
                 <ListItemText primary="Funding notice review overdue (CF‑12)" />
               </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <WarningIcon color="warning" />
-                </ListItemIcon>
-                <ListItemText primary="Covenant test approaching (FAC-13)" />
-              </ListItem>
             </List>
             <Button variant="outlined" size="small" fullWidth>
               View all
@@ -888,31 +895,11 @@ function RightDrawer({ open, onClose }) {
         </Card>
 
         <Card>
-          <CardHeader title="Audit & Provenance" />
+          <CardHeader title="Audit (B10.5 Placeholder)" />
           <CardContent>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-              Recent audit events and provenance tracking.
+            <Typography variant="body2" color="text.secondary">
+              Audit / Provenance drawer placeholder.
             </Typography>
-            <List dense>
-              <ListItem>
-                <ListItemIcon>
-                  <SecurityIcon />
-                </ListItemIcon>
-                <ListItemText 
-                  primary="Document viewed: ABC Trust Offering Memo"
-                  secondary="2024-01-15 14:30 UTC"
-                />
-              </ListItem>
-              <ListItem>
-                <ListItemIcon>
-                  <TokenIcon />
-                </ListItemIcon>
-                <ListItemText 
-                  primary="NFT linked: TRN-1A Token #123"
-                  secondary="2024-01-15 10:15 UTC"
-                />
-              </ListItem>
-            </List>
           </CardContent>
         </Card>
       </Box>
@@ -925,16 +912,58 @@ function KpiStrip() {
     <Grid container spacing={2}>
       {kpis.map((kpi) => (
         <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={kpi.label}>
-          <Card variant="outlined">
-            <CardContent sx={{ p: 2, textAlign: 'center' }}>
-              <Typography variant="caption" color="text.secondary" display="block">
+          <Card
+            variant="outlined"
+            sx={{
+              borderRadius: 3,
+              transition: "all 0.3s ease",
+              cursor: "pointer",
+              "&:hover": {
+                transform: "translateY(-4px)",
+                boxShadow: "0 8px 25px rgba(0, 0, 0, 0.1)",
+              },
+              "&::before": {
+                content: '""',
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: 4,
+                background: "linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4)",
+                borderRadius: "12px 12px 0 0",
+              },
+            }}
+          >
+            <CardContent
+              sx={{ p: 2, textAlign: "center", position: "relative" }}
+            >
+              <Typography
+                variant="caption"
+                color="text.secondary"
+                display="block"
+                sx={{
+                  fontSize: 12,
+                  fontWeight: 600,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em",
+                }}
+              >
                 {kpi.label}
               </Typography>
-              <Typography variant="h6" component="div" sx={{ color: `${kpi.color}.main` }}>
+              <Typography
+                variant="h6"
+                component="div"
+                sx={{
+                  fontSize: 28,
+                  fontWeight: 800,
+                  background:
+                    "linear-gradient(135deg, #1e293b 0%, #475569 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  mt: 1,
+                }}
+              >
                 {kpi.value}
-              </Typography>
-              <Typography variant="caption" color={`${kpi.color}.main`}>
-                {kpi.trend}
               </Typography>
             </CardContent>
           </Card>
@@ -944,146 +973,184 @@ function KpiStrip() {
   );
 }
 
-// Asset Type & Verification Level Components
-function AssetTypeChip({ assetType, provenance }) {
-  const getColor = (type) => {
-    switch (type) {
-      case 'SC_DAI': return 'primary';
-      case 'SC': return 'secondary';
-      case 'ThirdPartyCertified': return 'success';
-      default: return 'default';
-    }
-  };
-
-  return (
-    <Tooltip title={
-      <Box>
-        <Typography variant="body2"><strong>Source:</strong> {provenance.source}</Typography>
-        <Typography variant="body2"><strong>As-Of:</strong> {new Date(provenance.asOf).toLocaleString()}</Typography>
-        <Typography variant="body2"><strong>Signer:</strong> {provenance.signer}</Typography>
-        <Typography variant="body2"><strong>Hash:</strong> {provenance.hash}</Typography>
-        {provenance.txid && (
-          <Typography variant="body2"><strong>TxID:</strong> {provenance.txid}</Typography>
-        )}
-      </Box>
-    }>
-      <Chip 
-        label={assetType} 
-        size="small" 
-        color={getColor(assetType)}
-        variant="outlined"
-        icon={<VerifiedIcon />}
-      />
-    </Tooltip>
-  );
-}
-
-function VerificationLevelChip({ level, provenance }) {
-  const getColor = (level) => {
-    switch (level) {
-      case 'ThirdPartyCertified': return 'success';
-      case 'SelfCertified': return 'warning';
-      default: return 'default';
-    }
-  };
-
-  return (
-    <Tooltip title={
-      <Box>
-        <Typography variant="body2"><strong>Source:</strong> {provenance.source}</Typography>
-        <Typography variant="body2"><strong>As-Of:</strong> {new Date(provenance.asOf).toLocaleString()}</Typography>
-        <Typography variant="body2"><strong>Signer:</strong> {provenance.signer}</Typography>
-        <Typography variant="body2"><strong>Hash:</strong> {provenance.hash}</Typography>
-      </Box>
-    }>
-      <Chip 
-        label={level} 
-        size="small" 
-        color={getColor(level)}
-        variant="outlined"
-        icon={<CheckCircleIcon />}
-      />
-    </Tooltip>
-  );
-}
-
-function DocsNftChip({ docCount, hasNft, nftRef }) {
-  return (
-    <Box sx={{ display: 'flex', gap: 0.5, alignItems: 'center' }}>
-      <Chip 
-        label={`Docs: ${docCount}`} 
-        size="small" 
-        variant="outlined"
-        icon={<DocumentIcon />}
-      />
-      {hasNft && nftRef && (
-        <Tooltip title={
-          <Box>
-            <Typography variant="body2"><strong>Chain:</strong> {nftRef.chain}</Typography>
-            <Typography variant="body2"><strong>Contract:</strong> {nftRef.contract}</Typography>
-            <Typography variant="body2"><strong>Token ID:</strong> {nftRef.tokenId}</Typography>
-            <Typography variant="body2"><strong>URI:</strong> {nftRef.tokenUri}</Typography>
-          </Box>
-        }>
-          <Chip 
-            label="NFT ✓" 
-            size="small" 
-            color="success"
-            icon={<TokenIcon />}
-          />
-        </Tooltip>
-      )}
-      {!hasNft && (
-        <Chip 
-          label="NFT –" 
-          size="small" 
-          variant="outlined"
-          icon={<CancelIcon />}
-        />
-      )}
-    </Box>
-  );
-}
-
 function OpportunitiesSnapshot({ onOpenDetail, onViewAll }) {
   return (
-    <Card>
+    <Card
+      sx={{
+        borderRadius: 3,
+        overflow: "hidden",
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
+        transition: "all 0.3s ease",
+        "&:hover": {
+          boxShadow: "0 8px 25px rgba(0, 0, 0, 0.1)",
+        },
+      }}
+    >
       <CardHeader
         title="Opportunities — last updates"
+        titleTypographyProps={{
+          variant: "h6",
+          fontWeight: 700,
+          color: "#1f2937",
+        }}
         action={
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <Button size="small" onClick={onViewAll}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <Button
+              size="small"
+              onClick={onViewAll}
+              sx={{
+                background: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
+                color: "white",
+                "&:hover": {
+                  background:
+                    "linear-gradient(135deg, #2563eb 0%, #1e40af 100%)",
+                  transform: "translateY(-1px)",
+                },
+              }}
+            >
               View all opportunities
             </Button>
-            <Chip label="Preview" size="small" variant="outlined" />
-            <Chip label="Open" size="small" color="primary" />
-            <Chip label="Closing soon" size="small" variant="outlined" />
-            <Chip label="New" size="small" variant="outlined" />
+            <Chip
+              label="Preview"
+              size="small"
+              variant="outlined"
+              sx={{ fontSize: 10 }}
+            />
+            <Chip
+              label="Open"
+              size="small"
+              color="primary"
+              sx={{ fontSize: 10 }}
+            />
+            <Chip
+              label="Closing soon"
+              size="small"
+              variant="outlined"
+              sx={{ fontSize: 10 }}
+            />
+            <Chip
+              label="New"
+              size="small"
+              variant="outlined"
+              sx={{ fontSize: 10 }}
+            />
           </Box>
         }
       />
-      <CardContent>
+      <CardContent sx={{ p: 0 }}>
         <TableContainer>
           <Table size="small">
             <TableHead>
-              <TableRow>
-                <TableCell>Type</TableCell>
-                <TableCell>Issuer</TableCell>
-                <TableCell>Size</TableCell>
-                <TableCell>Price/Yield</TableCell>
-                <TableCell>Stage</TableCell>
-                <TableCell>Asset Type</TableCell>
-                <TableCell>Verification</TableCell>
-                <TableCell>Docs/NFTs</TableCell>
-                <TableCell>Last</TableCell>
-                <TableCell align="right">Actions</TableCell>
+              <TableRow
+                sx={{
+                  background:
+                    "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
+                }}
+              >
+                <TableCell
+                  sx={{
+                    fontWeight: 700,
+                    fontSize: 11,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    color: "#475569",
+                  }}
+                >
+                  Type
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontWeight: 700,
+                    fontSize: 11,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    color: "#475569",
+                  }}
+                >
+                  Issuer
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontWeight: 700,
+                    fontSize: 11,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    color: "#475569",
+                  }}
+                >
+                  Size
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontWeight: 700,
+                    fontSize: 11,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    color: "#475569",
+                  }}
+                >
+                  Price/Yield
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontWeight: 700,
+                    fontSize: 11,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    color: "#475569",
+                  }}
+                >
+                  Stage
+                </TableCell>
+                <TableCell
+                  sx={{
+                    fontWeight: 700,
+                    fontSize: 11,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    color: "#475569",
+                  }}
+                >
+                  Last
+                </TableCell>
+                <TableCell
+                  align="right"
+                  sx={{
+                    fontWeight: 700,
+                    fontSize: 11,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.1em",
+                    color: "#475569",
+                  }}
+                >
+                  Actions
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {mockOpportunities.slice(0, 3).map((o) => (
-                <TableRow key={o.id} hover>
-                  <TableCell>{o.type}</TableCell>
-                  <TableCell sx={{ fontWeight: 'medium' }}>{o.issuer}</TableCell>
+              {mockOpportunities.map((o) => (
+                <TableRow
+                  key={o.id}
+                  hover
+                  sx={{
+                    transition: "all 0.2s ease",
+                    "&:hover": {
+                      background:
+                        "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)",
+                    },
+                  }}
+                >
+                  <TableCell>
+                    <Chip
+                      label={o.type}
+                      size="small"
+                      variant="outlined"
+                      sx={{ fontSize: 10 }}
+                    />
+                  </TableCell>
+                  <TableCell sx={{ fontWeight: "medium" }}>
+                    {o.issuer}
+                  </TableCell>
                   <TableCell>${o.size}m</TableCell>
                   <TableCell>{o.priceYield}</TableCell>
                   <TableCell>
@@ -1091,16 +1158,8 @@ function OpportunitiesSnapshot({ onOpenDetail, onViewAll }) {
                       label={o.stage}
                       size="small"
                       color={o.stage === "Open" ? "primary" : "default"}
+                      sx={{ fontSize: 10 }}
                     />
-                  </TableCell>
-                  <TableCell>
-                    <AssetTypeChip assetType={o.assetType} provenance={o.provenance} />
-                  </TableCell>
-                  <TableCell>
-                    <VerificationLevelChip level={o.verificationLevel} provenance={o.provenance} />
-                  </TableCell>
-                  <TableCell>
-                    <DocsNftChip docCount={o.docCount} hasNft={o.hasNft} nftRef={o.nftRef} />
                   </TableCell>
                   <TableCell color="text.secondary">{o.last}</TableCell>
                   <TableCell align="right">
@@ -1108,6 +1167,7 @@ function OpportunitiesSnapshot({ onOpenDetail, onViewAll }) {
                       size="small"
                       variant="outlined"
                       onClick={() => onOpenDetail(o.id)}
+                      sx={{ fontSize: 10 }}
                     >
                       Open
                     </Button>
@@ -1124,25 +1184,84 @@ function OpportunitiesSnapshot({ onOpenDetail, onViewAll }) {
 
 function PortfolioSnapshot() {
   const tiles = [
-    { key: "CF", kpi1: "$312m", kpi2: "Headroom $58m", route: "portfolioCF" },
-    { key: "ABS/MBS", kpi1: "$205m", kpi2: "Next pay 15‑Feb", route: "portfolioABSMBS" },
-    { key: "WLS", kpi1: "$86m", kpi2: "2,431 loans", route: "portfolioWLS" },
-    { key: "PA", kpi1: "$8m", kpi2: "17 parts", route: "portfolioPA" },
+    {
+      key: "CF",
+      kpi1: "$312m",
+      kpi2: "Headroom $58m",
+      color: "linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)",
+      borderColor: "#93c5fd",
+    },
+    {
+      key: "ABS/MBS",
+      kpi1: "$205m",
+      kpi2: "Next pay 15‑Feb",
+      color: "linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)",
+      borderColor: "#86efac",
+    },
+    {
+      key: "WLS",
+      kpi1: "$86m",
+      kpi2: "2,431 loans",
+      color: "linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%)",
+      borderColor: "#c084fc",
+    },
+    {
+      key: "PA",
+      kpi1: "$8m",
+      kpi2: "17 parts",
+      color: "linear-gradient(135deg, #fed7aa 0%, #fdba74 100%)",
+      borderColor: "#fb923c",
+    },
   ];
 
   return (
     <Grid container spacing={2}>
       {tiles.map((tile) => (
         <Grid item xs={12} sm={6} key={tile.key}>
-          <Card sx={{ cursor: 'pointer' }}>
-            <CardContent sx={{ p: 2, textAlign: 'center' }}>
-              <Typography variant="caption" color="text.secondary" display="block">
+          <Card
+            sx={{
+              borderRadius: 3,
+              transition: "all 0.3s ease",
+              cursor: "pointer",
+              background: tile.color,
+              border: `1px solid ${tile.borderColor}`,
+              "&:hover": {
+                transform: "translateY(-4px)",
+                boxShadow: "0 8px 25px rgba(0, 0, 0, 0.1)",
+              },
+            }}
+          >
+            <CardContent sx={{ p: 2, textAlign: "center" }}>
+              <Typography
+                variant="caption"
+                color="text.secondary"
+                display="block"
+                sx={{
+                  fontSize: 12,
+                  fontWeight: 600,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em",
+                }}
+              >
                 {tile.key}
               </Typography>
-              <Typography variant="h5" component="div">
+              <Typography
+                variant="h5"
+                component="div"
+                sx={{
+                  fontSize: 24,
+                  fontWeight: 800,
+                  color: "#1f2937",
+                  mt: 1,
+                }}
+              >
                 {tile.kpi1}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ fontSize: 11, fontWeight: 500 }}
+              >
                 {tile.kpi2}
               </Typography>
             </CardContent>
@@ -1156,26 +1275,103 @@ function PortfolioSnapshot() {
 function TasksPanel() {
   const items = [
     { id: 1, text: "Sign NDA for ABC Trust", due: "today", priority: "high" },
-    { id: 2, text: "Allocate for WLS Pool 7", due: "tomorrow", priority: "medium" },
-    { id: 3, text: "Review CF‑12 funding notice", due: "due", priority: "high" },
+    {
+      id: 2,
+      text: "Allocate for WLS Pool 7",
+      due: "tomorrow",
+      priority: "medium",
+    },
+    { id: 3, text: "Review CF‑12 funding notice", due: "due", priority: "low" },
   ];
 
+  const getPriorityColor = (priority) => {
+    switch (priority) {
+      case "high":
+        return "#dc2626";
+      case "medium":
+        return "#d97706";
+      case "low":
+        return "#059669";
+      default:
+        return "#6b7280";
+    }
+  };
+
   return (
-    <Card>
-      <CardHeader title="Tasks & Alerts" />
+    <Card
+      sx={{
+        borderRadius: 3,
+        overflow: "hidden",
+        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
+        transition: "all 0.3s ease",
+        "&:hover": {
+          boxShadow: "0 8px 25px rgba(0, 0, 0, 0.1)",
+        },
+      }}
+    >
+      <CardHeader
+        title="Tasks & Alerts"
+        titleTypographyProps={{
+          variant: "h6",
+          fontWeight: 700,
+          color: "#1f2937",
+        }}
+      />
       <CardContent>
         <List dense>
           {items.map((item) => (
-            <ListItem key={item.id}>
+            <ListItem
+              key={item.id}
+              sx={{
+                mb: 1,
+                borderRadius: 2,
+                transition: "all 0.2s ease",
+                "&:hover": {
+                  background: "rgba(0, 0, 0, 0.02)",
+                  transform: "translateX(4px)",
+                },
+              }}
+            >
               <ListItemIcon>
-                <SecurityIcon color={item.priority === "high" ? "error" : "warning"} />
+                <SecurityIcon sx={{ color: getPriorityColor(item.priority) }} />
               </ListItemIcon>
-              <ListItemText primary={item.text} />
-              <Chip label={item.due} size="small" variant="outlined" />
+              <ListItemText
+                primary={item.text}
+                sx={{
+                  "& .MuiListItemText-primary": {
+                    fontSize: 14,
+                    fontWeight: 500,
+                    color: "#374151",
+                  },
+                }}
+              />
+              <Chip
+                label={item.due}
+                size="small"
+                variant="outlined"
+                sx={{
+                  fontSize: 10,
+                  borderColor: getPriorityColor(item.priority),
+                  color: getPriorityColor(item.priority),
+                }}
+              />
             </ListItem>
           ))}
         </List>
-        <Button variant="outlined" size="small" fullWidth>
+        <Button
+          variant="outlined"
+          size="small"
+          fullWidth
+          sx={{
+            mt: 2,
+            borderColor: "#d1d5db",
+            color: "#374151",
+            "&:hover": {
+              borderColor: "#9ca3af",
+              backgroundColor: "#f9fafb",
+            },
+          }}
+        >
           View all
         </Button>
       </CardContent>
@@ -1186,38 +1382,103 @@ function TasksPanel() {
 function Landing({ onOpenDetail, onViewAll }) {
   return (
     <Container maxWidth="xl" sx={{ py: 3 }}>
-      <Box sx={{ mb: 3 }}>
+      <Box sx={{ mb: 3 }} className="animate-slide-left">
         <KpiStrip />
       </Box>
 
       <Grid container spacing={3}>
-        <Grid item xs={12} lg={8}>
+        <Grid item xs={12} lg={8} className="animate-slide-left">
           <Box sx={{ mb: 3 }}>
-            <OpportunitiesSnapshot onOpenDetail={onOpenDetail} onViewAll={onViewAll} />
+            <OpportunitiesSnapshot
+              onOpenDetail={onOpenDetail}
+              onViewAll={onViewAll}
+            />
           </Box>
 
-          <Card>
-            <CardHeader title="Insights" />
+          <Card
+            sx={{
+              borderRadius: 3,
+              overflow: "hidden",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
+              transition: "all 0.3s ease",
+              "&:hover": {
+                boxShadow: "0 8px 25px rgba(0, 0, 0, 0.1)",
+              },
+            }}
+          >
+            <CardHeader
+              title="Insights"
+              titleTypographyProps={{
+                variant: "h6",
+                fontWeight: 700,
+                color: "#1f2937",
+              }}
+            />
             <CardContent>
               <Grid container spacing={2}>
                 <Grid item xs={12} md={4}>
-                  <Card variant="outlined">
-                    <CardContent sx={{ p: 2, textAlign: 'center' }}>
-                      <Typography variant="body2">Exceptions: 3</Typography>
+                  <Card
+                    variant="outlined"
+                    sx={{
+                      borderRadius: 2,
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        transform: "translateY(-2px)",
+                        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+                      },
+                    }}
+                  >
+                    <CardContent sx={{ p: 2, textAlign: "center" }}>
+                      <Typography
+                        variant="body2"
+                        sx={{ fontWeight: 600, color: "#dc2626" }}
+                      >
+                        Exceptions: 3
+                      </Typography>
                     </CardContent>
                   </Card>
                 </Grid>
                 <Grid item xs={12} md={4}>
-                  <Card variant="outlined">
-                    <CardContent sx={{ p: 2, textAlign: 'center' }}>
-                      <Typography variant="body2">Triggers WARN: 1</Typography>
+                  <Card
+                    variant="outlined"
+                    sx={{
+                      borderRadius: 2,
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        transform: "translateY(-2px)",
+                        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+                      },
+                    }}
+                  >
+                    <CardContent sx={{ p: 2, textAlign: "center" }}>
+                      <Typography
+                        variant="body2"
+                        sx={{ fontWeight: 600, color: "#d97706" }}
+                      >
+                        Triggers WARN: 1
+                      </Typography>
                     </CardContent>
                   </Card>
                 </Grid>
                 <Grid item xs={12} md={4}>
-                  <Card variant="outlined">
-                    <CardContent sx={{ p: 2, textAlign: 'center' }}>
-                      <Typography variant="body2">Covenants OK</Typography>
+                  <Card
+                    variant="outlined"
+                    sx={{
+                      borderRadius: 2,
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        transform: "translateY(-2px)",
+                        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+                      },
+                    }}
+                  >
+                    <CardContent sx={{ p: 2, textAlign: "center" }}>
+                      <Typography
+                        variant="body2"
+                        sx={{ fontWeight: 600, color: "#059669" }}
+                      >
+                        Covenants OK
+                      </Typography>
                     </CardContent>
                   </Card>
                 </Grid>
@@ -1226,7 +1487,7 @@ function Landing({ onOpenDetail, onViewAll }) {
           </Card>
         </Grid>
 
-        <Grid item xs={12} lg={4}>
+        <Grid item xs={12} lg={4} className="animate-slide-right">
           <Box sx={{ mb: 3 }}>
             <PortfolioSnapshot />
           </Box>
@@ -1234,8 +1495,26 @@ function Landing({ onOpenDetail, onViewAll }) {
         </Grid>
       </Grid>
 
-      <Card sx={{ mt: 3 }}>
-        <CardHeader title="Recent Activity" />
+      <Card
+        sx={{
+          mt: 3,
+          borderRadius: 3,
+          overflow: "hidden",
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
+          transition: "all 0.3s ease",
+          "&:hover": {
+            boxShadow: "0 8px 25px rgba(0, 0, 0, 0.1)",
+          },
+        }}
+      >
+        <CardHeader
+          title="Recent Activity"
+          titleTypographyProps={{
+            variant: "h6",
+            fontWeight: 700,
+            color: "#1f2937",
+          }}
+        />
         <CardContent>
           <Typography variant="body2" color="text.secondary">
             Watched deals, saved views (placeholder)
@@ -1247,166 +1526,75 @@ function Landing({ onOpenDetail, onViewAll }) {
 }
 
 // ---------------------------------------------
-// Enhanced Opportunities with Advanced Filters
+// Opportunities (B3) — Table, Cards, Compare
 // ---------------------------------------------
-function AdvancedFilters({ filters, onFilterChange }) {
-  const [expanded, setExpanded] = useState(false);
-
+function OpportunityCards({ onOpenDetail }) {
   return (
-    <Card sx={{ mb: 2 }}>
-      <CardHeader
-        title="Advanced Filters"
-        action={
-          <IconButton onClick={() => setExpanded(!expanded)}>
-            {expanded ? <ExpandLess /> : <ExpandMore />}
-          </IconButton>
-        }
-      />
-      <Collapse in={expanded}>
-        <CardContent>
-          <Grid container spacing={2}>
-            <Grid item xs={12} md={3}>
-              <FormControl fullWidth size="small">
-                <InputLabel>Asset Type</InputLabel>
-                <Select
-                  multiple
-                  value={filters.assetTypes}
-                  onChange={(e) => onFilterChange('assetTypes', e.target.value)}
-                  renderValue={(selected) => selected.join(', ')}
-                >
-                  <MenuItem value="SC_DAI">SC_DAI</MenuItem>
-                  <MenuItem value="SC">SC</MenuItem>
-                  <MenuItem value="ThirdPartyCertified">ThirdPartyCertified</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <FormControl fullWidth size="small">
-                <InputLabel>Verification Level</InputLabel>
-                <Select
-                  multiple
-                  value={filters.verificationLevels}
-                  onChange={(e) => onFilterChange('verificationLevels', e.target.value)}
-                  renderValue={(selected) => selected.join(', ')}
-                >
-                  <MenuItem value="SelfCertified">SelfCertified</MenuItem>
-                  <MenuItem value="ThirdPartyCertified">ThirdPartyCertified</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <FormControl fullWidth size="small">
-                <InputLabel>Geography</InputLabel>
-                <Select
-                  multiple
-                  value={filters.geographies}
-                  onChange={(e) => onFilterChange('geographies', e.target.value)}
-                  renderValue={(selected) => selected.join(', ')}
-                >
-                  <MenuItem value="US">US</MenuItem>
-                  <MenuItem value="EU">EU</MenuItem>
-                  <MenuItem value="APAC">APAC</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <FormControl fullWidth size="small">
-                <InputLabel>Asset Class</InputLabel>
-                <Select
-                  multiple
-                  value={filters.assetClasses}
-                  onChange={(e) => onFilterChange('assetClasses', e.target.value)}
-                  renderValue={(selected) => selected.join(', ')}
-                >
-                  <MenuItem value="Residential Mortgage">Residential Mortgage</MenuItem>
-                  <MenuItem value="Commercial Lending">Commercial Lending</MenuItem>
-                  <MenuItem value="Commercial Real Estate">Commercial Real Estate</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <FormControl fullWidth size="small">
-                <InputLabel>Access Level</InputLabel>
-                <Select
-                  multiple
-                  value={filters.accessLevels}
-                  onChange={(e) => onFilterChange('accessLevels', e.target.value)}
-                  renderValue={(selected) => selected.join(', ')}
-                >
-                  <MenuItem value="Public">Public</MenuItem>
-                  <MenuItem value="NDA">NDA</MenuItem>
-                  <MenuItem value="Data-room">Data-room</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <FormControl fullWidth size="small">
-                <InputLabel>Stage</InputLabel>
-                <Select
-                  multiple
-                  value={filters.stages}
-                  onChange={(e) => onFilterChange('stages', e.target.value)}
-                  renderValue={(selected) => selected.join(', ')}
-                >
-                  <MenuItem value="Preview">Preview</MenuItem>
-                  <MenuItem value="Open">Open</MenuItem>
-                  <MenuItem value="Closed">Closed</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <FormGroup row>
-                <FormControlLabel
-                  control={
-                    <Checkbox 
-                      checked={filters.hasNft}
-                      onChange={(e) => onFilterChange('hasNft', e.target.checked)}
-                    />
-                  }
-                  label="Has NFT"
-                />
-                <FormControlLabel
-                  control={
-                    <Checkbox 
-                      checked={filters.hasDocuments}
-                      onChange={(e) => onFilterChange('hasDocuments', e.target.checked)}
-                    />
-                  }
-                  label="Has Documents"
-                />
-              </FormGroup>
-            </Grid>
-          </Grid>
-        </CardContent>
-      </Collapse>
-    </Card>
+    <Grid container spacing={2}>
+      {mockOpportunities.map((o) => (
+        <Grid item xs={12} sm={6} md={4} lg={3} key={o.id}>
+          <Card hover>
+            <CardHeader
+              action={
+                <Box sx={{ display: "flex", gap: 1 }}>
+                  <Chip label={o.type} size="small" variant="outlined" />
+                  <Chip
+                    label={o.stage}
+                    size="small"
+                    color={o.stage === "Open" ? "primary" : "default"}
+                  />
+                </Box>
+              }
+              title={o.issuer}
+              titleTypographyProps={{ variant: "h6" }}
+            />
+            <CardContent>
+              <Typography variant="body2" sx={{ mb: 1 }}>
+                Size: <strong>${o.size}m</strong>
+              </Typography>
+              <Typography variant="body2" sx={{ mb: 2 }}>
+                {o.type === "ABS"
+                  ? "Yield"
+                  : o.type === "WLS"
+                  ? "Price"
+                  : "Rate"}
+                : <strong>{o.priceYield}</strong>
+              </Typography>
+              <Box sx={{ display: "flex", gap: 1, mb: 2, flexWrap: "wrap" }}>
+                {o.badges.map((b) => (
+                  <Chip key={b} label={b} size="small" variant="outlined" />
+                ))}
+              </Box>
+              <Button
+                variant="outlined"
+                size="small"
+                onClick={() => onOpenDetail(o.id)}
+                fullWidth
+              >
+                Detail
+              </Button>
+            </CardContent>
+          </Card>
+        </Grid>
+      ))}
+    </Grid>
   );
 }
 
-function OpportunitiesTable({ onOpenDetail, filters }) {
+function OpportunitiesTable({ onOpenDetail }) {
   const [expanded, setExpanded] = useState(null);
-  const [ndaAcknowledged, setNdaAcknowledged] = useState(false);
-  const [mnpiAcknowledged, setMnpiAcknowledged] = useState(false);
-
-  // Filter opportunities based on filters
-  const filteredOpportunities = useMemo(() => {
-    return mockOpportunities.filter(opp => {
-      if (filters.assetTypes.length > 0 && !filters.assetTypes.includes(opp.assetType)) return false;
-      if (filters.verificationLevels.length > 0 && !filters.verificationLevels.includes(opp.verificationLevel)) return false;
-      if (filters.geographies.length > 0 && !filters.geographies.includes(opp.geography)) return false;
-      if (filters.assetClasses.length > 0 && !filters.assetClasses.includes(opp.assetClass)) return false;
-      if (filters.accessLevels.length > 0 && !filters.accessLevels.includes(opp.access)) return false;
-      if (filters.stages.length > 0 && !filters.stages.includes(opp.stage)) return false;
-      if (filters.hasNft && !opp.hasNft) return false;
-      if (filters.hasDocuments && opp.docCount === 0) return false;
-      return true;
-    });
-  }, [filters]);
 
   return (
     <Box>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-        <Box sx={{ display: 'flex', gap: 1 }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mb: 2,
+        }}
+      >
+        <Box sx={{ display: "flex", gap: 1 }}>
           <Button variant="outlined" size="small" startIcon={<FilterIcon />}>
             Advanced Filters (B10.1)
           </Button>
@@ -1417,48 +1605,202 @@ function OpportunitiesTable({ onOpenDetail, filters }) {
             Share
           </Button>
         </Box>
-        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
+        <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
           <FormControlLabel
-            control={<Switch size="small" checked={ndaAcknowledged} onChange={(e) => setNdaAcknowledged(e.target.checked)} />}
+            control={<Switch size="small" />}
             label="NDA"
             labelPlacement="start"
           />
           <FormControlLabel
-            control={<Switch size="small" checked={mnpiAcknowledged} onChange={(e) => setMnpiAcknowledged(e.target.checked)} />}
+            control={<Switch size="small" />}
             label="MNPI"
             labelPlacement="start"
           />
         </Box>
       </Box>
 
-      <TableContainer component={Paper}>
+      <TableContainer
+        component={Paper}
+        sx={{
+          borderRadius: 3,
+          overflow: "hidden",
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
+        }}
+      >
         <Table>
           <TableHead>
-            <TableRow>
+            <TableRow
+              sx={{
+                background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
+              }}
+            >
               <TableCell padding="checkbox"></TableCell>
-              <TableCell>Type</TableCell>
-              <TableCell>Issuer/Servicer</TableCell>
-              <TableCell>Stage</TableCell>
-              <TableCell>ID</TableCell>
-              <TableCell>Ccy</TableCell>
-              <TableCell>Size</TableCell>
-              <TableCell>Price/Yield</TableCell>
-              <TableCell>WAL</TableCell>
-              <TableCell>Asset Type</TableCell>
-              <TableCell>Verification</TableCell>
-              <TableCell>Docs/NFTs</TableCell>
-              <TableCell>Last</TableCell>
-              <TableCell align="right">Actions</TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 700,
+                  fontSize: 12,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  color: "#475569",
+                }}
+              >
+                Type
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 700,
+                  fontSize: 12,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  color: "#475569",
+                }}
+              >
+                Issuer/Servicer
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 700,
+                  fontSize: 12,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  color: "#475569",
+                }}
+              >
+                Stage
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 700,
+                  fontSize: 12,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  color: "#475569",
+                }}
+              >
+                ID
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 700,
+                  fontSize: 12,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  color: "#475569",
+                }}
+              >
+                Ccy
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 700,
+                  fontSize: 12,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  color: "#475569",
+                }}
+              >
+                Size
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 700,
+                  fontSize: 12,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  color: "#475569",
+                }}
+              >
+                Price/Yield
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 700,
+                  fontSize: 12,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  color: "#475569",
+                }}
+              >
+                WAL
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 700,
+                  fontSize: 12,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  color: "#475569",
+                }}
+              >
+                Asset Type
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 700,
+                  fontSize: 12,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  color: "#475569",
+                }}
+              >
+                Verification
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 700,
+                  fontSize: 12,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  color: "#475569",
+                }}
+              >
+                Docs/NFTs
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontWeight: 700,
+                  fontSize: 12,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  color: "#475569",
+                }}
+              >
+                Last
+              </TableCell>
+              <TableCell
+                align="right"
+                sx={{
+                  fontWeight: 700,
+                  fontSize: 12,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.1em",
+                  color: "#475569",
+                }}
+              >
+                Actions
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {filteredOpportunities.map((o) => (
+            {mockOpportunities.map((o) => (
               <React.Fragment key={o.id}>
-                <TableRow hover>
+                <TableRow
+                  hover
+                  sx={{
+                    transition: "all 0.2s ease",
+                    "&:hover": {
+                      background:
+                        "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)",
+                      transform: "scale(1.01)",
+                    },
+                  }}
+                >
                   <TableCell padding="checkbox">
                     <IconButton
                       size="small"
-                      onClick={() => setExpanded(expanded === o.id ? null : o.id)}
+                      onClick={() =>
+                        setExpanded(expanded === o.id ? null : o.id)
+                      }
                     >
                       {expanded === o.id ? <ExpandLess /> : <ExpandMore />}
                     </IconButton>
@@ -1466,7 +1808,9 @@ function OpportunitiesTable({ onOpenDetail, filters }) {
                   <TableCell>
                     <Chip label={o.type} size="small" variant="outlined" />
                   </TableCell>
-                  <TableCell sx={{ fontWeight: 'medium' }}>{o.issuer}</TableCell>
+                  <TableCell sx={{ fontWeight: "medium" }}>
+                    {o.issuer}
+                  </TableCell>
                   <TableCell>
                     <Chip
                       label={o.stage}
@@ -1480,13 +1824,39 @@ function OpportunitiesTable({ onOpenDetail, filters }) {
                   <TableCell>{o.priceYield}</TableCell>
                   <TableCell>{o.wal}</TableCell>
                   <TableCell>
-                    <AssetTypeChip assetType={o.assetType} provenance={o.provenance} />
+                    <Chip
+                      label={o.assetType || "—"}
+                      size="small"
+                      variant="outlined"
+                      sx={{ fontSize: 10 }}
+                    />
                   </TableCell>
                   <TableCell>
-                    <VerificationLevelChip level={o.verificationLevel} provenance={o.provenance} />
+                    <Chip
+                      label={o.verificationLevel || "—"}
+                      size="small"
+                      variant="outlined"
+                      sx={{ fontSize: 10 }}
+                    />
                   </TableCell>
                   <TableCell>
-                    <DocsNftChip docCount={o.docCount} hasNft={o.hasNft} nftRef={o.nftRef} />
+                    <Box
+                      sx={{ display: "flex", gap: 0.5, alignItems: "center" }}
+                    >
+                      <Chip
+                        label={`Docs: ${o.docCount || 0}`}
+                        size="small"
+                        variant="outlined"
+                        sx={{ fontSize: 10 }}
+                      />
+                      <Chip
+                        label={o.hasNft ? "NFT: ✓" : "NFT: —"}
+                        size="small"
+                        variant="outlined"
+                        color={o.hasNft ? "success" : "default"}
+                        sx={{ fontSize: 10 }}
+                      />
+                    </Box>
                   </TableCell>
                   <TableCell color="text.secondary">{o.last}</TableCell>
                   <TableCell align="right">
@@ -1502,35 +1872,54 @@ function OpportunitiesTable({ onOpenDetail, filters }) {
                 {expanded === o.id && (
                   <TableRow>
                     <TableCell colSpan={14}>
-                      <Paper sx={{ p: 2, bgcolor: 'grey.50' }}>
-                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                          <Box sx={{ display: 'flex', gap: 3 }}>
+                      <Paper sx={{ p: 2, bgcolor: "grey.50", borderRadius: 2 }}>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                          }}
+                        >
+                          <Box sx={{ display: "flex", gap: 3 }}>
                             {o.type === "ABS" && (
                               <>
                                 <Typography variant="body2">
-                                  Triggers: OC {o.triggers?.oc} <CheckCircleIcon sx={{ fontSize: 16, color: 'success.main' }} /> | IC {o.triggers?.ic} <CheckCircleIcon sx={{ fontSize: 16, color: 'success.main' }} />
+                                  Triggers: OC {o.triggers?.oc}{" "}
+                                  <CheckCircleIcon
+                                    sx={{ fontSize: 16, color: "success.main" }}
+                                  />{" "}
+                                  | IC {o.triggers?.ic}{" "}
+                                  <CheckCircleIcon
+                                    sx={{ fontSize: 16, color: "success.main" }}
+                                  />
                                 </Typography>
-                                <Typography variant="body2">Factor {o.factor}</Typography>
-                                <Typography variant="body2">Next Pay: {o.nextPayDate}</Typography>
+                                <Typography variant="body2">
+                                  Factor {o.factor}
+                                </Typography>
+                                <Typography variant="body2">
+                                  Next Pay: 15‑Feb
+                                </Typography>
                               </>
                             )}
                             {o.type === "WLS" && (
                               <Typography variant="body2">
-                                Loans {o.loans} | WA FICO {o.wafico} | LTV {o.ltv}% | WA Rate {o.waRate} | WA Term {o.waRemainingTerm}
+                                Loans {o.loans} | WA FICO {o.wafico} | LTV{" "}
+                                {o.ltv}%
                               </Typography>
                             )}
                             {o.type === "CF" && (
                               <Typography variant="body2">
-                                Headroom {o.headroom} | Tenor {o.tenor} | Advance rate {o.advanceRate}%
+                                Headroom {o.headroom} | Tenor 24m | Advance rate
+                                65%
                               </Typography>
                             )}
                             {o.type === "PA" && (
                               <Typography variant="body2">
-                                % Available {o.availPct}% | Priority {o.cashFlowPriority}
+                                % Available {o.availPct}% | Priority Senior
                               </Typography>
                             )}
                           </Box>
-                          <Box sx={{ display: 'flex', gap: 1 }}>
+                          <Box sx={{ display: "flex", gap: 1 }}>
                             <Button size="small">Subscribe</Button>
                             <Button size="small">Indicate Interest</Button>
                             <Button size="small" variant="outlined">
@@ -1563,7 +1952,7 @@ function OpportunitiesCompare() {
             <TableHead>
               <TableRow>
                 <TableCell>Metric</TableCell>
-                {mockOpportunities.map(o => (
+                {mockOpportunities.map((o) => (
                   <TableCell key={o.id}>{o.issuer}</TableCell>
                 ))}
               </TableRow>
@@ -1571,13 +1960,15 @@ function OpportunitiesCompare() {
             <TableBody>
               {cols.map((c) => (
                 <TableRow key={c}>
-                  <TableCell sx={{ fontWeight: 'medium' }}>{c}</TableCell>
-                  {mockOpportunities.map(o => (
+                  <TableCell sx={{ fontWeight: "medium" }}>{c}</TableCell>
+                  {mockOpportunities.map((o) => (
                     <TableCell key={o.id}>
                       {c === "Yield/Price" && o.priceYield}
                       {c === "Size" && `$${o.size}m`}
                       {c === "WAL" && o.wal}
-                      {c === "Notes" && <TextField size="small" placeholder="notes" fullWidth />}
+                      {c === "Notes" && (
+                        <TextField size="small" placeholder="notes" fullWidth />
+                      )}
                     </TableCell>
                   ))}
                 </TableRow>
@@ -1592,29 +1983,19 @@ function OpportunitiesCompare() {
 
 function Opportunities({ onOpenDetail }) {
   const [view, setView] = useState("table");
-  const [filters, setFilters] = useState({
-    assetTypes: [],
-    verificationLevels: [],
-    geographies: [],
-    assetClasses: [],
-    accessLevels: [],
-    stages: [],
-    hasNft: false,
-    hasDocuments: false
-  });
-
-  const handleFilterChange = (filterName, value) => {
-    setFilters(prev => ({
-      ...prev,
-      [filterName]: value
-    }));
-  };
 
   return (
     <Container maxWidth="xl" sx={{ py: 3 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mb: 3,
+        }}
+      >
         <Typography variant="h4">Opportunities</Typography>
-        <Box sx={{ display: 'flex', gap: 1 }}>
+        <Box sx={{ display: "flex", gap: 1 }}>
           <Button
             variant={view === "table" ? "contained" : "outlined"}
             startIcon={<TableChartIcon />}
@@ -1639,10 +2020,8 @@ function Opportunities({ onOpenDetail }) {
         </Box>
       </Box>
 
-      <AdvancedFilters filters={filters} onFilterChange={handleFilterChange} />
-
-      {view === "table" && <OpportunitiesTable onOpenDetail={onOpenDetail} filters={filters} />}
-      {view === "cards" && <OpportunitiesTable onOpenDetail={onOpenDetail} filters={filters} />}
+      {view === "table" && <OpportunitiesTable onOpenDetail={onOpenDetail} />}
+      {view === "cards" && <OpportunitiesTable onOpenDetail={onOpenDetail} />}
       {view === "compare" && <OpportunitiesCompare />}
     </Container>
   );
@@ -1667,8 +2046,15 @@ function OpportunityDetail({ id, onBack }) {
 
   return (
     <Container maxWidth="xl" sx={{ py: 3 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mb: 3,
+        }}
+      >
+        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <IconButton onClick={onBack}>
             <ChevronLeft />
           </IconButton>
@@ -1683,17 +2069,11 @@ function OpportunityDetail({ id, onBack }) {
             label={deal.stage}
             color={deal.stage === "Open" ? "primary" : "default"}
           />
-          <AssetTypeChip assetType={deal.assetType} provenance={deal.provenance} />
-          <VerificationLevelChip level={deal.verificationLevel} provenance={deal.provenance} />
-          <DocsNftChip docCount={deal.docCount} hasNft={deal.hasNft} nftRef={deal.nftRef} />
         </Box>
-        <Box sx={{ display: 'flex', gap: 1 }}>
+        <Box sx={{ display: "flex", gap: 1 }}>
           <Button variant="outlined">Subscribe</Button>
           <Button variant="outlined">Indicate Interest</Button>
-          <Button
-            variant="contained"
-            onClick={() => setOpenSettlement(true)}
-          >
+          <Button variant="contained" onClick={() => setOpenSettlement(true)}>
             Settlement (B4.1)
           </Button>
         </Box>
@@ -1703,7 +2083,11 @@ function OpportunityDetail({ id, onBack }) {
         <Grid item xs={12} md={8}>
           <Card>
             <CardContent sx={{ p: 0 }}>
-              <Tabs value={tabValue} onChange={handleTabChange} sx={{ borderBottom: 1, borderColor: 'divider' }}>
+              <Tabs
+                value={tabValue}
+                onChange={handleTabChange}
+                sx={{ borderBottom: 1, borderColor: "divider" }}
+              >
                 <Tab label="Overview" />
                 <Tab label="Collateral/Strats" />
                 <Tab label="Waterfall/Payments" />
@@ -1720,22 +2104,35 @@ function OpportunityDetail({ id, onBack }) {
                   <Box>
                     <Card variant="outlined" sx={{ mb: 2 }}>
                       <CardContent>
-                        <Typography variant="body2">Summary KPIs (placeholder)</Typography>
+                        <Typography variant="body2">
+                          Summary KPIs (placeholder)
+                        </Typography>
                       </CardContent>
                     </Card>
                     <Card variant="outlined" sx={{ mb: 2 }}>
                       <CardContent>
-                        <Typography variant="body2">Charts / Tables (placeholder)</Typography>
+                        <Typography variant="body2">
+                          Charts / Tables (placeholder)
+                        </Typography>
                       </CardContent>
                     </Card>
-                    <Box sx={{ display: 'flex', gap: 1 }}>
-                      <Button variant="outlined" onClick={() => setOpenDataRoom(true)}>
+                    <Box sx={{ display: "flex", gap: 1 }}>
+                      <Button
+                        variant="outlined"
+                        onClick={() => setOpenDataRoom(true)}
+                      >
                         Open Data Room (B10.2)
                       </Button>
-                      <Button variant="outlined" onClick={() => setOpenWaterfall(true)}>
+                      <Button
+                        variant="outlined"
+                        onClick={() => setOpenWaterfall(true)}
+                      >
                         Open Waterfall Viewer (B10.3)
                       </Button>
-                      <Button variant="outlined" onClick={() => setOpenPivot(true)}>
+                      <Button
+                        variant="outlined"
+                        onClick={() => setOpenPivot(true)}
+                      >
                         Open Pivot/Strats (B10.4)
                       </Button>
                     </Box>
@@ -1787,22 +2184,28 @@ function OpportunityDetail({ id, onBack }) {
         </Grid>
 
         <Grid item xs={12} md={4}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
             <Card>
               <CardHeader title="KPIs & Provenance" />
               <CardContent>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                     <Chip label="VA" size="small" variant="outlined" />
-                    <Typography variant="body2">Verification Agent data present</Typography>
+                    <Typography variant="body2">
+                      Verification Agent data present
+                    </Typography>
                   </Box>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                     <Chip label="Trustee" size="small" variant="outlined" />
-                    <Typography variant="body2">Official report loaded</Typography>
+                    <Typography variant="body2">
+                      Official report loaded
+                    </Typography>
                   </Box>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                     <Chip label="On‑chain" size="small" variant="outlined" />
-                    <Typography variant="body2">Tx: 0xabc… (placeholder)</Typography>
+                    <Typography variant="body2">
+                      Tx: 0xabc… (placeholder)
+                    </Typography>
                   </Box>
                   <Button variant="outlined" size="small" fullWidth>
                     Provenance (B10.5)
@@ -1828,7 +2231,12 @@ function OpportunityDetail({ id, onBack }) {
       </Grid>
 
       {/* Dialogs */}
-      <Dialog open={openSettlement} onClose={() => setOpenSettlement(false)} maxWidth="sm" fullWidth>
+      <Dialog
+        open={openSettlement}
+        onClose={() => setOpenSettlement(false)}
+        maxWidth="sm"
+        fullWidth
+      >
         <DialogTitle>Settlement Widget — Placeholder (B4.1)</DialogTitle>
         <DialogContent>
           <Typography variant="body2" color="text.secondary">
@@ -1840,7 +2248,12 @@ function OpportunityDetail({ id, onBack }) {
         </DialogActions>
       </Dialog>
 
-      <Dialog open={openDataRoom} onClose={() => setOpenDataRoom(false)} maxWidth="md" fullWidth>
+      <Dialog
+        open={openDataRoom}
+        onClose={() => setOpenDataRoom(false)}
+        maxWidth="md"
+        fullWidth
+      >
         <DialogTitle>Data Room Viewer — Placeholder (B10.2)</DialogTitle>
         <DialogContent>
           <Typography variant="body2" color="text.secondary">
@@ -1852,7 +2265,12 @@ function OpportunityDetail({ id, onBack }) {
         </DialogActions>
       </Dialog>
 
-      <Dialog open={openWaterfall} onClose={() => setOpenWaterfall(false)} maxWidth="lg" fullWidth>
+      <Dialog
+        open={openWaterfall}
+        onClose={() => setOpenWaterfall(false)}
+        maxWidth="lg"
+        fullWidth
+      >
         <DialogTitle>Waterfall Viewer — Placeholder (B10.3)</DialogTitle>
         <DialogContent>
           <Typography variant="body2" color="text.secondary">
@@ -1864,7 +2282,12 @@ function OpportunityDetail({ id, onBack }) {
         </DialogActions>
       </Dialog>
 
-      <Dialog open={openPivot} onClose={() => setOpenPivot(false)} maxWidth="lg" fullWidth>
+      <Dialog
+        open={openPivot}
+        onClose={() => setOpenPivot(false)}
+        maxWidth="lg"
+        fullWidth
+      >
         <DialogTitle>Pivot / Strats — Placeholder (B10.4)</DialogTitle>
         <DialogContent>
           <Typography variant="body2" color="text.secondary">
@@ -1902,6 +2325,7 @@ export default function InvestorConsole() {
   const [route, setRoute] = useState("home");
   const [detailId, setDetailId] = useState(null);
   const [rightOpen, setRightOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
 
   const openDetail = (id) => {
     setDetailId(id);
@@ -1909,33 +2333,87 @@ export default function InvestorConsole() {
   };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+    <Box sx={{ display: "flex", flexDirection: "column", height: "100vh" }}>
       <TopBar onToggleRight={() => setRightOpen(true)} />
-      <Box sx={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
-        <SideNav current={route} onNavigate={(k) => setRoute(k)} />
-        <Box sx={{ flex: 1, overflow: 'auto', bgcolor: 'grey.50' }}>
+      <Box sx={{ display: "flex", flex: 1, overflow: "hidden" }}>
+        <SideNav
+          current={route}
+          onNavigate={(k) => setRoute(k)}
+          collapsed={collapsed}
+          setCollapsed={setCollapsed}
+        />
+        <Box
+          sx={{
+            flex: 1,
+            overflow: "auto",
+            background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
+            animation: "fadeIn 0.3s ease-out",
+            className: "main-content-area",
+          }}
+        >
           {route === "home" && (
             <>
-              <Box sx={{ p: 3, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Typography variant="h3">Home</Typography>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Box
+                sx={{
+                  p: 3,
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+                className="animate-fade-in"
+              >
+                <Typography
+                  variant="h3"
+                  sx={{
+                    fontWeight: 800,
+                    background:
+                      "linear-gradient(135deg, #1e293b 0%, #475569 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    letterSpacing: "-0.025em",
+                    textShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                  }}
+                >
+                  Home
+                </Typography>
+                <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                   <SparklesIcon />
                   <Typography variant="body2" color="text.secondary">
                     Unified Opportunities + Portfolio snapshot
                   </Typography>
                 </Box>
               </Box>
-              <Landing onOpenDetail={openDetail} onViewAll={() => setRoute("opportunities")} />
+              <Landing
+                onOpenDetail={openDetail}
+                onViewAll={() => setRoute("opportunities")}
+              />
             </>
           )}
-          {route === "opportunities" && <Opportunities onOpenDetail={openDetail} />}
-          {route === "detail" && detailId && <OpportunityDetail id={detailId} onBack={() => setRoute("opportunities")} />}
+          {route === "opportunities" && (
+            <Opportunities onOpenDetail={openDetail} />
+          )}
+          {route === "detail" && detailId && (
+            <OpportunityDetail
+              id={detailId}
+              onBack={() => setRoute("opportunities")}
+            />
+          )}
 
-          {route === "portfolioOverview" && <Placeholder title="Portfolio — Overview" />}
-          {route === "portfolioCF" && <Placeholder title="Portfolio — Credit Facilities" />}
-          {route === "portfolioABSMBS" && <Placeholder title="Portfolio — ABS/MBS" />}
-          {route === "portfolioWLS" && <Placeholder title="Portfolio — Whole Loans" />}
-          {route === "portfolioPA" && <Placeholder title="Portfolio — Participations" />}
+          {route === "portfolioOverview" && (
+            <Placeholder title="Portfolio — Overview" />
+          )}
+          {route === "portfolioCF" && (
+            <Placeholder title="Portfolio — Credit Facilities" />
+          )}
+          {route === "portfolioABSMBS" && (
+            <Placeholder title="Portfolio — ABS/MBS" />
+          )}
+          {route === "portfolioWLS" && (
+            <Placeholder title="Portfolio — Whole Loans" />
+          )}
+          {route === "portfolioPA" && (
+            <Placeholder title="Portfolio — Participations" />
+          )}
 
           {route === "activity" && <Placeholder title="Activity" />}
           {route === "reports" && <Placeholder title="Reports" />}
@@ -1945,4 +2423,4 @@ export default function InvestorConsole() {
       </Box>
     </Box>
   );
-} 
+}
