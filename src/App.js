@@ -56,33 +56,33 @@ function App() {
           // Show authenticated content
           <>
             {/* Header with user info and logout */}
-            {/* <div style={{
-              background: 'white',
-              padding: '10px 20px',
-              borderBottom: '1px solid #e0e0e0',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center'
-            }}>
-              <div>
-                <span style={{ fontWeight: 'bold', color: '#2c3e50' }}>
-                  Welcome, {userEmail} ({userRole})
-                </span>
+              <div style={{
+                background: 'white',
+                padding: '10px 20px',
+                borderBottom: '1px solid #e0e0e0',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+              }}>
+                <div>
+                  <span style={{ fontWeight: 'bold', color: '#2c3e50' }}>
+                    Welcome, {userEmail} ({userRole})
+                  </span>
+                </div>
+                <button
+                  onClick={handleLogout}
+                  style={{
+                    padding: '8px 16px',
+                    background: '#dc3545',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '6px',
+                    cursor: 'pointer'
+                  }}
+                >
+                  Logout
+                </button>
               </div>
-              <button
-                onClick={handleLogout}
-                style={{
-                  padding: '8px 16px',
-                  background: '#dc3545',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '6px',
-                  cursor: 'pointer'
-                }}
-              >
-                Logout
-              </button>
-            </div> */}
 
           <Routes>
               {/* Main Dashboard Route */}
