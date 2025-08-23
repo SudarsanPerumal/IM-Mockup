@@ -832,17 +832,17 @@ function SideNav({ current, onNavigate, collapsed, setCollapsed }) {
   const menuItems = [
     { key: "home", label: "Home", icon: <HomeIcon /> },
     { key: "opportunities", label: "Opportunities", icon: <LayersIcon /> },
-    { key: "activity", label: "Activity", icon: <ActivityIcon /> },
-    { key: "reports", label: "Reports", icon: <ReportsIcon /> },
-    { key: "settings", label: "Settings", icon: <SettingsIcon /> },
+    { key: "pools", label: "Pools", icon: <DatabaseIcon /> },
+    { key: "portfolio", label: "Portfolio", icon: <WalletIcon /> },
+    { key: "creditFacilities", label: "Credit Facilities", icon: <CreditCardIcon /> },
+    { key: "wholeLoans", label: "Whole Loans", icon: <AccountBalanceWalletIcon /> },
+    { key: "participationAgreements", label: "Participation Agreements", icon: <SwapHorizIcon /> },
+    { key: "securitizations", label: "Securitizations", icon: <ReceiptIcon /> },
   ];
 
-  const portfolioItems = [
-    { key: "portfolioOverview", label: "Overview" },
-    { key: "portfolioCF", label: "Credit Facilities (CF)" },
-    { key: "portfolioABSMBS", label: "ABS/MBS" },
-    { key: "portfolioWLS", label: "Whole Loans (WLS)" },
-    { key: "portfolioPA", label: "Participations (PA)" },
+  const bottomItems = [
+    { key: "activity", label: "Activity", icon: <ActivityIcon /> },
+    { key: "audit", label: "Audit", icon: <SecurityIcon /> },
   ];
 
   return (
@@ -961,163 +961,46 @@ function SideNav({ current, onNavigate, collapsed, setCollapsed }) {
             background: "rgba(255, 255, 255, 0.3)",
             borderRadius: 2,
           },
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
         }}
       >
-        {!collapsed && (
-          <Typography
-            variant="overline"
-            sx={{
-              color: "rgba(255, 255, 255, 0.6)",
-              mb: 1,
-              fontSize: 11,
-              textTransform: "uppercase",
-              letterSpacing: "0.15em",
-              fontWeight: 700,
-              position: "relative",
-              "&::after": {
-                content: '""',
-                position: "absolute",
-                bottom: -4,
-                left: 0,
-                right: 0,
-                height: 1,
-                background:
-                  "linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%)",
-              },
-            }}
-          >
-            Navigation
-          </Typography>
-        )}
-
-        <List sx={{ mb: 3.5 }}>
-          {menuItems.map((item) => (
-            <ListItem key={item.key} disablePadding sx={{ mb: 0.75 }}>
-              <ListItemButton
-                selected={current === item.key}
-                onClick={() => onNavigate(item.key)}
-                sx={{
-                  borderRadius: 3,
-                  fontSize: 14,
-                  fontWeight: 500,
-                  transition: "all 0.3s ease",
-                  cursor: "pointer",
-                  border: "none",
-                  background: "transparent",
-                  color: "rgba(255, 255, 255, 0.8)",
-                  position: "relative",
-                  overflow: "hidden",
-                  "&::before": {
-                    content: '""',
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    background:
-                      "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)",
-                    opacity: 0,
-                    transition: "opacity 0.3s ease",
-                    borderRadius: 3,
-                  },
-                  "&:hover::before": { opacity: 1 },
-                  "&:hover": {
-                    color: "white",
-                    transform: "translateX(4px)",
-                  },
-                  "&.Mui-selected": {
-                    background:
-                      "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
-                    color: "white",
-                    boxShadow: "0 6px 20px rgba(59, 130, 246, 0.3)",
-                    border: "1px solid rgba(255, 255, 255, 0.2)",
-                    "&::before": { opacity: 0 },
-                  },
-                  "&.Mui-selected:hover": {
-                    transform: "translateX(4px)",
-                    boxShadow: "0 8px 25px rgba(59, 130, 246, 0.4)",
-                  },
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    color: "inherit",
-                    minWidth: collapsed ? "auto" : 40,
-                    mr: collapsed ? 0 : 1.5,
-                    "& .MuiSvgIcon-root": {
-                      fontSize: 20,
-                      filter: "drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))",
-                      transition: "all 0.3s ease",
-                    },
-                  }}
-                >
-                  {item.icon}
-                </ListItemIcon>
-                {!collapsed && <ListItemText primary={item.label} />}
-              </ListItemButton>
-            </ListItem>
-          ))}
-
-          <ListItem disablePadding sx={{ mb: 0.75 }}>
-            <ListItemButton
-              onClick={() => setPortfolioOpen(!portfolioOpen)}
+        <Box>
+          {!collapsed && (
+            <Typography
+              variant="overline"
               sx={{
-                borderRadius: 3,
-                fontSize: 14,
-                fontWeight: 500,
-                transition: "all 0.3s ease",
-                cursor: "pointer",
-                border: "none",
-                background: "transparent",
-                color: "rgba(255, 255, 255, 0.8)",
+                color: "rgba(255, 255, 255, 0.6)",
+                mb: 1,
+                fontSize: 11,
+                textTransform: "uppercase",
+                letterSpacing: "0.15em",
+                fontWeight: 700,
                 position: "relative",
-                overflow: "hidden",
-                "&::before": {
+                "&::after": {
                   content: '""',
                   position: "absolute",
-                  top: 0,
+                  bottom: -4,
                   left: 0,
                   right: 0,
-                  bottom: 0,
+                  height: 1,
                   background:
-                    "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)",
-                  opacity: 0,
-                  transition: "opacity 0.3s ease",
-                  borderRadius: 3,
-                },
-                "&:hover::before": { opacity: 1 },
-                "&:hover": {
-                  color: "white",
-                  transform: "translateX(4px)",
+                    "linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%)",
                 },
               }}
             >
-              <ListItemIcon
-                sx={{
-                  color: "inherit",
-                  minWidth: collapsed ? "auto" : 40,
-                  mr: collapsed ? 0 : 1.5,
-                  "& .MuiSvgIcon-root": {
-                    fontSize: 20,
-                    filter: "drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))",
-                    transition: "all 0.3s ease",
-                  },
-                }}
-              >
-                <WalletIcon />
-              </ListItemIcon>
-              {!collapsed && <ListItemText primary="Portfolio" />}
-              {!collapsed && (portfolioOpen ? <ExpandLess /> : <ExpandMore />)}
-            </ListItemButton>
-          </ListItem>
+              Navigation
+            </Typography>
+          )}
 
-          <Collapse in={portfolioOpen} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              {portfolioItems.map((item) => (
+          <List sx={{ mb: 3.5 }}>
+            {menuItems.map((item) => (
+              <ListItem key={item.key} disablePadding sx={{ mb: 0.75 }}>
                 <ListItemButton
-                  key={item.key}
+                  selected={current === item.key}
+                  onClick={() => onNavigate(item.key)}
                   sx={{
-                    pl: collapsed ? 1 : 4,
                     borderRadius: 3,
                     fontSize: 14,
                     fontWeight: 500,
@@ -1159,22 +1042,31 @@ function SideNav({ current, onNavigate, collapsed, setCollapsed }) {
                       boxShadow: "0 8px 25px rgba(59, 130, 246, 0.4)",
                     },
                   }}
-                  selected={current === item.key}
-                  onClick={() => onNavigate(item.key)}
                 >
+                  <ListItemIcon
+                    sx={{
+                      color: "inherit",
+                      minWidth: collapsed ? "auto" : 40,
+                      mr: collapsed ? 0 : 1.5,
+                      "& .MuiSvgIcon-root": {
+                        fontSize: 20,
+                        filter: "drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))",
+                        transition: "all 0.3s ease",
+                      },
+                    }}
+                  >
+                    {item.icon}
+                  </ListItemIcon>
                   {!collapsed && <ListItemText primary={item.label} />}
                 </ListItemButton>
-              ))}
-            </List>
-          </Collapse>
-        </List>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
 
-        {!collapsed && (
-          <>
-            <Divider
-              sx={{ my: 2.5, borderColor: "rgba(255, 255, 255, 0.2)" }}
-            />
-
+        {/* Bottom Section */}
+        <Box>
+          {!collapsed && (
             <Typography
               variant="overline"
               sx={{
@@ -1197,89 +1089,79 @@ function SideNav({ current, onNavigate, collapsed, setCollapsed }) {
                 },
               }}
             >
-              Quick Actions
+              Standard Fields
             </Typography>
+          )}
 
-            <Grid container spacing={1}>
-              <Grid item xs={6}>
-                <Button
-                  variant="outlined"
-                  size="small"
-                  startIcon={<FilterIcon />}
-                  fullWidth
+          <List>
+            {bottomItems.map((item) => (
+              <ListItem key={item.key} disablePadding sx={{ mb: 0.75 }}>
+                <ListItemButton
+                  selected={current === item.key}
+                  onClick={() => onNavigate(item.key)}
                   sx={{
-                    borderColor: "rgba(255, 255, 255, 0.3)",
+                    borderRadius: 3,
+                    fontSize: 14,
+                    fontWeight: 500,
+                    transition: "all 0.3s ease",
+                    cursor: "pointer",
+                    border: "none",
+                    background: "transparent",
                     color: "rgba(255, 255, 255, 0.8)",
-                    fontSize: 10,
+                    position: "relative",
+                    overflow: "hidden",
+                    "&::before": {
+                      content: '""',
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background:
+                        "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      borderRadius: 3,
+                    },
+                    "&:hover::before": { opacity: 1 },
                     "&:hover": {
-                      borderColor: "rgba(255, 255, 255, 0.5)",
-                      backgroundColor: "rgba(255, 255, 255, 0.1)",
+                      color: "white",
+                      transform: "translateX(4px)",
+                    },
+                    "&.Mui-selected": {
+                      background:
+                        "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
+                      color: "white",
+                      boxShadow: "0 6px 20px rgba(59, 130, 246, 0.3)",
+                      border: "1px solid rgba(255, 255, 255, 0.2)",
+                      "&::before": { opacity: 0 },
+                    },
+                    "&.Mui-selected:hover": {
+                      transform: "translateX(4px)",
+                      boxShadow: "0 8px 25px rgba(59, 130, 246, 0.4)",
                     },
                   }}
                 >
-                  Filters
-                </Button>
-              </Grid>
-              <Grid item xs={6}>
-                <Button
-                  variant="outlined"
-                  size="small"
-                  startIcon={<DatabaseIcon />}
-                  fullWidth
-                  sx={{
-                    borderColor: "rgba(255, 255, 255, 0.3)",
-                    color: "rgba(255, 255, 255, 0.8)",
-                    fontSize: 10,
-                    "&:hover": {
-                      borderColor: "rgba(255, 255, 255, 0.5)",
-                      backgroundColor: "rgba(255, 255, 255, 0.1)",
-                    },
-                  }}
-                >
-                  Data Room
-                </Button>
-              </Grid>
-              <Grid item xs={6}>
-                <Button
-                  variant="outlined"
-                  size="small"
-                  startIcon={<SecurityIcon />}
-                  fullWidth
-                  sx={{
-                    borderColor: "rgba(255, 255, 255, 0.3)",
-                    color: "rgba(255, 255, 255, 0.8)",
-                    fontSize: 10,
-                    "&:hover": {
-                      borderColor: "rgba(255, 255, 255, 0.5)",
-                      backgroundColor: "rgba(255, 255, 255, 0.1)",
-                    },
-                  }}
-                >
-                  Provenance
-                </Button>
-              </Grid>
-              <Grid item xs={6}>
-                <Button
-                  variant="outlined"
-                  size="small"
-                  startIcon={<BusinessIcon />}
-                  fullWidth
-                  sx={{
-                    borderColor: "rgba(255, 255, 255, 0.3)",
-                    color: "rgba(255, 255, 255, 0.8)",
-                    fontSize: 10,
-                    "&:hover": {
-                      borderColor: "rgba(255, 255, 255, 0.5)",
-                      backgroundColor: "rgba(255, 255, 255, 0.1)",
-                    },
-                  }}
-                >
-                  Issuers
-                </Button>
-              </Grid>
-            </Grid>
-          </>
-        )}
+                  <ListItemIcon
+                    sx={{
+                      color: "inherit",
+                      minWidth: collapsed ? "auto" : 40,
+                      mr: collapsed ? 0 : 1.5,
+                      "& .MuiSvgIcon-root": {
+                        fontSize: 20,
+                        filter: "drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))",
+                        transition: "all 0.3s ease",
+                      },
+                    }}
+                  >
+                    {item.icon}
+                  </ListItemIcon>
+                  {!collapsed && <ListItemText primary={item.label} />}
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
       </Box>
     </Drawer>
   );
@@ -2092,7 +1974,7 @@ function RightDrawer({ open, onClose }) {
     );
   }
   
-  // Enhanced Landing Page
+  // Enhanced Landing Page - Updated based on feedback
   function Landing({ onOpenDetail, onViewAll, onNavigate }) {
     return (
       <Container maxWidth="xl" sx={{ py: 3 }}>
@@ -2109,6 +1991,7 @@ function RightDrawer({ open, onClose }) {
               />
             </Box>
   
+            {/* Tasks and Alerts - Horizontal Layout */}
             <Card
               sx={{
                 borderRadius: 3,
@@ -2121,7 +2004,7 @@ function RightDrawer({ open, onClose }) {
               }}
             >
               <CardHeader
-                title="Insights & Analytics"
+                title="Tasks & Alerts"
                 titleTypographyProps={{
                   variant: "h6",
                   fontWeight: 700,
@@ -2130,71 +2013,40 @@ function RightDrawer({ open, onClose }) {
               />
               <CardContent>
                 <Grid container spacing={2}>
-                  <Grid item xs={12} md={4}>
-                    <Card
-                      variant="outlined"
-                      sx={{
-                        borderRadius: 2,
-                        transition: "all 0.3s ease",
-                        "&:hover": {
-                          transform: "translateY(-2px)",
-                          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-                        },
-                      }}
-                    >
-                      <CardContent sx={{ p: 2, textAlign: "center" }}>
-                        <Typography
-                          variant="body2"
-                          sx={{ fontWeight: 600, color: "#dc2626" }}
-                        >
-                          Exceptions: 3
-                        </Typography>
-                      </CardContent>
-                    </Card>
+                  <Grid item xs={12} md={6}>
+                    <List dense>
+                      <ListItem sx={{ px: 0 }}>
+                        <ListItemIcon>
+                          <CheckCircleIcon color="success" />
+                        </ListItemIcon>
+                        <ListItemText 
+                          primary="NDA — ABC Trust (today)" 
+                          secondary="Pending signature"
+                        />
+                      </ListItem>
+                      <ListItem sx={{ px: 0 }}>
+                        <ListItemIcon>
+                          <WarningIcon color="warning" />
+                        </ListItemIcon>
+                        <ListItemText 
+                          primary="Funding notice review overdue (CF‑12)" 
+                          secondary="Due in 2 hours"
+                        />
+                      </ListItem>
+                    </List>
                   </Grid>
-                  <Grid item xs={12} md={4}>
-                    <Card
-                      variant="outlined"
-                      sx={{
-                        borderRadius: 2,
-                        transition: "all 0.3s ease",
-                        "&:hover": {
-                          transform: "translateY(-2px)",
-                          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-                        },
-                      }}
-                    >
-                      <CardContent sx={{ p: 2, textAlign: "center" }}>
-                        <Typography
-                          variant="body2"
-                          sx={{ fontWeight: 600, color: "#d97706" }}
-                        >
-                          Triggers WARN: 1
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </Grid>
-                  <Grid item xs={12} md={4}>
-                    <Card
-                      variant="outlined"
-                      sx={{
-                        borderRadius: 2,
-                        transition: "all 0.3s ease",
-                        "&:hover": {
-                          transform: "translateY(-2px)",
-                          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-                        },
-                      }}
-                    >
-                      <CardContent sx={{ p: 2, textAlign: "center" }}>
-                        <Typography
-                          variant="body2"
-                          sx={{ fontWeight: 600, color: "#059669" }}
-                        >
-                          Covenants OK
-                        </Typography>
-                      </CardContent>
-                    </Card>
+                  <Grid item xs={12} md={6}>
+                    <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                      <Alert severity="warning">
+                        Trigger warning: OC ratio below 105% for TRN-1A
+                      </Alert>
+                      <Alert severity="info">
+                        New document available: Servicer report for FAC-12
+                      </Alert>
+                      <Alert severity="success">
+                        Settlement confirmed: $2.1m allocated to POOL-7
+                      </Alert>
+                    </Box>
                   </Grid>
                 </Grid>
               </CardContent>
@@ -2203,9 +2055,103 @@ function RightDrawer({ open, onClose }) {
   
           <Grid item xs={12} lg={4} className="animate-slide-right">
             <Box sx={{ mb: 3 }}>
-              <PortfolioSnapshot onNavigate={onNavigate} />
+              {/* Portfolio View - 2x2 Grid */}
+              <Grid container spacing={2}>
+                {[
+                  {
+                    key: "creditFacilities",
+                    title: "Credit Facilities",
+                    kpi1: portfolioData.cf.commitments,
+                    kpi2: `Headroom ${portfolioData.cf.headroom}`,
+                    color: "linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%)",
+                    borderColor: "#93c5fd",
+                    icon: <CreditCardIcon />,
+                  },
+                  {
+                    key: "securitizations",
+                    title: "Securitizations",
+                    kpi1: portfolioData.abs.marketValue,
+                    kpi2: `Next pay ${portfolioData.abs.nextPayDate}`,
+                    color: "linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)",
+                    borderColor: "#86efac",
+                    icon: <ReceiptIcon />,
+                  },
+                  {
+                    key: "wholeLoans",
+                    title: "Whole Loans",
+                    kpi1: portfolioData.wls.upb,
+                    kpi2: `${portfolioData.wls.loanCount} loans`,
+                    color: "linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%)",
+                    borderColor: "#c084fc",
+                    icon: <AccountBalanceWalletIcon />,
+                  },
+                  {
+                    key: "participationAgreements",
+                    title: "Participation Agreements",
+                    kpi1: portfolioData.pa.upbRepresented,
+                    kpi2: `${portfolioData.pa.participationCount} parts`,
+                    color: "linear-gradient(135deg, #fed7aa 0%, #fdba74 100%)",
+                    borderColor: "#fb923c",
+                    icon: <SwapHorizIcon />,
+                  },
+                ].map((tile) => (
+                  <Grid item xs={6} key={tile.key}>
+                    <Card
+                      onClick={() => onNavigate(tile.key)}
+                      sx={{
+                        borderRadius: 3,
+                        transition: "all 0.3s ease",
+                        cursor: "pointer",
+                        background: tile.color,
+                        border: `1px solid ${tile.borderColor}`,
+                        "&:hover": {
+                          transform: "translateY(-4px)",
+                          boxShadow: "0 8px 25px rgba(0, 0, 0, 0.1)",
+                        },
+                      }}
+                    >
+                      <CardContent sx={{ p: 2, textAlign: "center" }}>
+                        <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", mb: 1 }}>
+                          {tile.icon}
+                        </Box>
+                        <Typography
+                          variant="caption"
+                          color="text.secondary"
+                          display="block"
+                          sx={{
+                            fontSize: 12,
+                            fontWeight: 600,
+                            textTransform: "uppercase",
+                            letterSpacing: "0.05em",
+                          }}
+                        >
+                          {tile.title}
+                        </Typography>
+                        <Typography
+                          variant="h5"
+                          component="div"
+                          sx={{
+                            fontSize: 24,
+                            fontWeight: 800,
+                            color: "#1f2937",
+                            mt: 1,
+                          }}
+                        >
+                          {tile.kpi1}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          sx={{ fontSize: 11, fontWeight: 500 }}
+                        >
+                          {tile.kpi2}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
             </Box>
-            <TasksPanel />
           </Grid>
         </Grid>
   
@@ -2265,7 +2211,7 @@ function RightDrawer({ open, onClose }) {
     );
   }
   
-  // Enhanced Opportunities Table with Asset Types and Verification
+  // Enhanced Opportunities Table with Updated Filtering
   function OpportunitiesTable({ onOpenDetail }) {
     const [expanded, setExpanded] = useState(null);
     const [filters, setFilters] = useState({
@@ -2300,21 +2246,6 @@ function RightDrawer({ open, onClose }) {
             <Button variant="outlined" size="small" startIcon={<BookmarkIcon />}>
               Save View
             </Button>
-            <Button variant="outlined" size="small" startIcon={<ShareIcon />}>
-              Share
-            </Button>
-          </Box>
-          <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
-            <FormControlLabel
-              control={<Switch size="small" />}
-              label="NDA"
-              labelPlacement="start"
-            />
-            <FormControlLabel
-              control={<Switch size="small" />}
-              label="MNPI"
-              labelPlacement="start"
-            />
           </Box>
         </Box>
   
@@ -2327,6 +2258,22 @@ function RightDrawer({ open, onClose }) {
           </AccordionSummary>
           <AccordionDetails>
             <Grid container spacing={2}>
+              <Grid item xs={12} md={3}>
+                <FormControl fullWidth size="small">
+                  <InputLabel>Transaction Type</InputLabel>
+                  <Select
+                    multiple
+                    value={filters.type}
+                    onChange={(e) => handleFilterChange('type', e.target.value)}
+                    renderValue={(selected) => selected.join(', ')}
+                  >
+                    <MenuItem value="ABS">ABS</MenuItem>
+                    <MenuItem value="CF">CF</MenuItem>
+                    <MenuItem value="WLS">WLS</MenuItem>
+                    <MenuItem value="PA">PA</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
               <Grid item xs={12} md={3}>
                 <FormControl fullWidth size="small">
                   <InputLabel>Asset Type</InputLabel>
@@ -2368,21 +2315,6 @@ function RightDrawer({ open, onClose }) {
                     <MenuItem value="Preview">Preview</MenuItem>
                     <MenuItem value="Open">Open</MenuItem>
                     <MenuItem value="Closed">Closed</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid>
-              <Grid item xs={12} md={3}>
-                <FormControl fullWidth size="small">
-                  <InputLabel>Access</InputLabel>
-                  <Select
-                    multiple
-                    value={filters.access}
-                    onChange={(e) => handleFilterChange('access', e.target.value)}
-                    renderValue={(selected) => selected.join(', ')}
-                  >
-                    <MenuItem value="Public">Public</MenuItem>
-                    <MenuItem value="NDA">NDA</MenuItem>
-                    <MenuItem value="Data-room">Data-room</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
@@ -3844,7 +3776,7 @@ function Opportunities({ onOpenDetail }) {
     );
   }
   
-  // Main App Component
+  // Main App Component - Updated with new navigation structure
   export default function InvestorConsoleBRD() {
     const [route, setRoute] = useState("home");
     const [detailId, setDetailId] = useState(null);
@@ -3929,19 +3861,44 @@ function Opportunities({ onOpenDetail }) {
               />
             )}
   
-            {route === "portfolioOverview" && <PortfolioOverview />}
-            {route === "portfolioCF" && <PortfolioCF />}
-            {route === "portfolioABSMBS" && <PortfolioABSMBS />}
-            {route === "portfolioWLS" && <PortfolioWLS />}
-            {route === "portfolioPA" && <PortfolioPA />}
+            {/* New Navigation Routes */}
+            {route === "pools" && <Placeholder title="Pools" />}
+            {route === "portfolio" && <PortfolioPlaceholder />}
+            {route === "creditFacilities" && <Placeholder title="Credit Facilities" />}
+            {route === "wholeLoans" && <Placeholder title="Whole Loans" />}
+            {route === "participationAgreements" && <Placeholder title="Participation Agreements" />}
+            {route === "securitizations" && <Placeholder title="Securitizations" />}
   
+            {/* Bottom Section Routes */}
             {route === "activity" && <Placeholder title="Activity" />}
-            {route === "reports" && <Placeholder title="Reports" />}
-            {route === "settings" && <Placeholder title="Settings" />}
+            {route === "audit" && <Placeholder title="Audit" />}
           </Box>
           <RightDrawer open={rightOpen} onClose={() => setRightOpen(false)} />
         </Box>
       </Box>
+    );
+  }
+  
+  // Portfolio Placeholder Component
+  function PortfolioPlaceholder() {
+    return (
+      <Container maxWidth="xl" sx={{ py: 6 }}>
+        <Typography variant="h3" sx={{ mb: 2 }}>
+          Portfolio
+        </Typography>
+        <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
+          Portfolio dashboard will be implemented based on IntainADMIN delivery specifications.
+        </Typography>
+        <Card variant="outlined" sx={{ p: 3 }}>
+          <Typography variant="h6" sx={{ mb: 2 }}>
+            Placeholder Content
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            This section will contain portfolio-specific functionality and data visualization
+            once the IntainADMIN dashboard specifications are finalized.
+          </Typography>
+        </Card>
+      </Container>
     );
   }
   
