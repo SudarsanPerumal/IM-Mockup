@@ -717,7 +717,7 @@ const BorrowerDashboard = () => {
                 { required: true, message: "Please enter borrower entity" },
               ]}
             >
-              <Input placeholder="Borrower ABC" disabled />
+              <Input placeholder="Borrower ABC"  />
             </Form.Item>
 
             <Form.Item
